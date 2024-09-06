@@ -60,6 +60,9 @@ function Navbar() {
                                 <Link className="link" to="/messages">
                                     Messages
                                 </Link>
+                                <Link className="link" to="/aboutus">
+                                    About
+                                </Link>
                                 <Link className="link" to="/">
                                     Logout
                                 </Link>

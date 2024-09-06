@@ -12,6 +12,7 @@ import Add from "./pages/add/Add";
 import Orders from "./pages/orders/Orders";
 import Messages from "./pages/messages/Messages";
 import Message from "./pages/message/Message";
+import Aboutus from "./pages/aboutus/aboutus";
 
 
 
@@ -59,6 +60,10 @@ function App() {
         {
           path: "/gig/:id",
           element: <Gig />,
+        },
+        {
+          path: "/aboutus",
+          element: <Aboutus/>,
         },
       ],
     },
