@@ -13,6 +13,7 @@ import Orders from "./pages/orders/Orders";
 import Messages from "./pages/messages/Messages";
 import Message from "./pages/message/Message";
 import Aboutus from "./pages/aboutus/aboutus";
+import Contactus from "./pages/contactus/contactus";
 
 
 
@@ -64,6 +65,10 @@ function App() {
         {
           path: "/aboutus",
           element: <Aboutus/>,
+        },
+        {
+          path: "/contactus",
+          element: <Contactus />,
         },
       ],
     },

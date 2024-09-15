@@ -28,7 +28,7 @@ const Footer = () => {
                     <h2>Help & Support</h2>
                         <Link className="link" to="/"> <p>Blog</p></Link>
                         <Link className="link" to="/"> <p>FAQs</p></Link>
-                        <Link className="link" to="/"> <p>Contact Us</p></Link>
+                        <Link className="link" to="/contactus"> <p>Contact Us</p></Link>
                 </div>
                 <div className="footer_col">
                     <h2>About us</h2>
