@@ -36,6 +36,17 @@ function Navbar() {
                     </Link>
                     <span className="dot">.</span>
                 </div>
+                <div className="top-nav">
+                <Link className="link-nav" to="/">
+                        <span className="text">HOME</span>
+                </Link>
+                <Link className="link-nav" to="/aboutus">
+                        <span className="text">ABOUT US</span>
+                </Link>
+                <Link className="link-nav" to="/contactus">
+                        <span className="text">CONTACT US</span>
+                </Link>
+                </div>
                 <div className="links">
                     <span>Sign in</span>
                     {!currentUser?.isBuilder && <span>Become a Builder</span>}
