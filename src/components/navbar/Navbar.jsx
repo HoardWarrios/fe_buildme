@@ -23,7 +23,7 @@ function Navbar() {
 
     const currentUser = {
         id: 1,
-        username: "Krishan",
+        username: "Hoard Warriors",
         isBuilder: true,
     };
 
@@ -32,7 +32,7 @@ function Navbar() {
             <div className="container">
                 <div className="logo">
                     <Link className="link" to="/">
-                        <span className="text">Buildme</span>
+                        <span className="text">BuildME</span>
                     </Link>
                     <span className="dot">.</span>
                 </div>
@@ -47,9 +47,9 @@ function Navbar() {
                             {open && <div className="options">
                                 {
                                     currentUser?.isBuilder && (
-                                        <>
+                                        <> 
                                             <Link to="/gigs">Gigs</Link>
-                                            <Link className="link" to="/add">
+                                            <Link className="link" to="/add"> 
                                                 Add New Gig
                                             </Link>
                                         </>

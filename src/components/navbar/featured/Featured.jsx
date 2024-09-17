@@ -18,7 +18,7 @@ function Featured() {
               <img src="src\public\img\search.png" alt="" />
               <input type="text" placeholder='Try "building for home"' />
             </div>
-            <button>Join in</button>
+            <button>Join with Us</button>
           </div>
           
         </div>
