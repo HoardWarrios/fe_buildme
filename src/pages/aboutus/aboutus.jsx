@@ -5,7 +5,7 @@ const Aboutus = () => {
     return (
         
         <div className='about'>
-        {/* <section className="banner-section">
+        <section className="banner-section">
           <div className="banner-section">
             <div className='banner_col1'>
             <h1>DO YOU FIND FOR <br/> A BUILDER?</h1>
@@ -19,10 +19,10 @@ const Aboutus = () => {
             </div>
 
         <div className='banner_col'>
-          <img src="src\images\pngwing 1.png" alt="Builder" className="intro-image" />
+          <img src="src\public\img\pngwing 1.png" alt="Builder" className="intro-image" />
           </div>
           </div>
-        </section> */}
+        </section>
          <section className='aboutbox'>
             <h1>ABOUT US</h1>
             <br/>

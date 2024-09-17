@@ -32,7 +32,7 @@ const Footer = () => {
                 </div>
                 <div className="footer_col">
                     <h2>About us</h2>
-                        <Link className="link" to="/"> <p>About us</p></Link>
+                        <Link className="link" to="/aboutus"> <p>About us</p></Link>
                         <Link className="link" to="/"> <p>Terms & Conditions</p></Link>
                         <Link className="link" to="/"> <p>Privacy Policy</p></Link>
                 </div>

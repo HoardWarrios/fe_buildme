@@ -20,7 +20,7 @@ const Contactus = () => {
             </div>
 
         <div className='banner_col'>
-          <img src="src\images\pngwing 2.png" alt="Builder" className="intro-image" />
+          <img src="src\public\img\pngwing 2.png" alt="Builder" className="intro-image" />
           </div>
           </div>
         </section>
@@ -38,15 +38,15 @@ const Contactus = () => {
       </form>
       <div className="contact-info">
         <p>
-           <img src="src\images\Rectangle 40.png"/>
+           <img src="src\public\img\Rectangle 40.png"/>
            <a href="mailto:buildme5l@gmail.com" className="fas_fa-envelope"> buidmesl@gmail.com</a>
         </p>
         <p>
-        <img src="src\images\Rectangle 41.png"/>
+        <img src="src\public\img\Rectangle 41.png"/>
         <a href="https://facebook.com/buildme" className="fas_fa-envelope" target="_blank" rel="noopener noreferrer">  Build ME @ Official </a>
         </p>
         <p>
-        <img src="src\images\Rectangle 42.png"/>
+        <img src="src\public\img\Rectangle 42.png"/>
           <a href="https://youtube.com/buildme" className="fas_fa-envelope" target="_blank" rel="noopener noreferrer">  Build ME </a>
         </p>
       </div>
