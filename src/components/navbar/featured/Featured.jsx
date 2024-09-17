@@ -9,12 +9,13 @@ function Featured() {
         <div className="left">
           <h1>
           DO YOU FIND FOR
-          A BUILDER <br /> OR ARE YOU A BUILDER?
+          A BUILDER OR ARE YOU A BUILDER?
           </h1>
-          <p>Get started on your construction journey today! Explore our website to discover our <br />wide range of services, read testimonials from satisfied clients, <br />  and connect with us for any inquiries.</p>
+          <p>Get started on your construction journey today! Explore our website to discover our wide range of services, read testimonials from satisfied clients, <br />  and connect with us for any inquiries.</p>
+          
           <div className="search">
             <div className="searchInput">
-              <img src="./img/search.png" alt="" />
+              <img src="src\public\img\search.png" alt="" />
               <input type="text" placeholder='Try "building for home"' />
             </div>
             <button>Join in</button>
@@ -22,11 +23,10 @@ function Featured() {
           
         </div>
         <div className="right">
-          <img src="./img/man.png" alt="" />
+          <img src="src\public\img\image1.jpg" alt="" />
         </div>
       </div>
     </div>
- 
   );
 }
 
