@@ -116,13 +116,42 @@
       font-weight: 300;
       font-family: "Montserrat", sans-serif;
     }
-    .link-nav{
+    
+    .link-nav {
+      position: relative;
       margin-right: 40px;
-      color: #000000;
+      display: inline-block;
+      text-decoration: none; /* Removes default underline */
+      color: inherit;
       font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-      text-decoration: none;
+      padding-bottom: 5px; /* Adds some space below the text */
+      transition: color 0.1s ease; /* Smooth color transition */
+      
+      /* Creates the underline with pseudo-element */
+      &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 0;
+        height: 2px;
+        background-color:#3c3b3b; /* The same color as the text */
+        transition: width 0.3s ease; /* Smooth animation */
+      }
+    
+      &:hover::after, 
+      &:focus::after, 
+      &.active::after { 
+        width: 100%;
+      }
+    
+      &:hover {
+        color: #3c3b3b; 
+      }
     }
+    
     .top-nav{
       margin-left: 150px;
+      
     }
   }
