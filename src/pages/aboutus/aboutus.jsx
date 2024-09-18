@@ -5,24 +5,6 @@ const Aboutus = () => {
     return (
         
         <div className='about'>
-        <section className="banner-section">
-          <div className="banner-section">
-            <div className='banner_col1'>
-            <h1>DO YOU FIND FOR <br/> A BUILDER?</h1>
-            <br/>
-            <p>
-              Get started on your construction journey today! Explore our
-              website to discover our wide range of services, read testimonials
-              from satisfied clients, and connect with us for any inquiries.
-            </p><br/>
-            <button className="create-profile-button">Create Your Profile</button>
-            </div>
-
-        <div className='banner_col'>
-          <img src="src\public\img\pngwing 1.png" alt="Builder" className="intro-image" />
-          </div>
-          </div>
-        </section>
          <section className='aboutbox'>
             <h1>ABOUT US</h1>
             <br/>

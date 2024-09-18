@@ -38,10 +38,10 @@ const Add = () => {
             <label htmlFor="">Revision Number</label>
             <input type="number" />
             <label htmlFor="">Add Features</label>
-            <input type="text" placeholder="e.g. page design" />
-            <input type="text" placeholder="e.g. file uploading" />
-            <input type="text" placeholder="e.g. setting up a domain" />
-            <input type="text" placeholder="e.g. hosting" />
+            <input type="text" placeholder="e.g. Wall Paint design" />
+            <input type="text" placeholder="e.g. Roofing design" />
+            <input type="text" placeholder="e.g. Eco friendly paints" />
+            <input type="text" placeholder="e.g. 3D painting" />
             <label htmlFor="">Price</label>
             <input type="number" />
           </div>

@@ -22,7 +22,8 @@ function Home() {
             <div className="item">
               <h1> Talented Builders at your fingertips</h1>
               <div className="title">
-                <img src="./img/check.png" alt="" />
+              <img src="./src/public/img/check.png" alt="" />
+              {/*<img src="/img/check.png" alt="Check" />*/}
                 The best for every budget
               </div>
               <p>
@@ -30,7 +31,7 @@ function Home() {
                 just project-based pricing.
               </p>
               <div className="title">
-                <img src="./img/check.png" alt="" />
+                <img src="./src/public/img/check.png" alt="" />
                 Quality work done quickly
               </div>
               <p>
@@ -38,7 +39,7 @@ function Home() {
                 minutes.
               </p>
               <div className="title">
-                <img src="./img/check.png" alt="" />
+                <img src="./src/public/img/check.png" alt="" />
                 Protected payments, every time
               </div>
               <p>
@@ -46,7 +47,7 @@ function Home() {
                 until you approve the work.
               </p>
               <div className="title">
-                <img src="./img/check.png" alt="" />
+                <img src="./src/public/img/check.png" alt="" />
                 24/7 support
               </div>
               <p>
@@ -55,7 +56,7 @@ function Home() {
               </p>
             </div>
             <div className="item">
-              <video src="./img/video.mp4" controls />
+              <video src="./src/public/img/video.mp4" controls />
             </div>
           </div>
         </div>
@@ -161,17 +162,17 @@ function Home() {
                 dedicated to Construction
               </p>
               <div className="title">
-                <img src="./img/check.png" alt="" />
+                <img src="./src/public/img/check.png" alt="" />
                 Connect to Builders with proven business experience
               </div>
   
               <div className="title">
-                <img src="./img/check.png" alt="" />
+                <img src="./src/public/img/check.png" alt="" /> 
                 Get matched with the perfect talent by a customer success manager
               </div>
   
               <div className="title">
-                <img src="./img/check.png" alt="" />
+                <img src="./src/public/img/check.png" alt="" />
                 Manage work and boost productivity with one powerful workspace
               </div>
               <button>Explore BuildME</button>

@@ -9,10 +9,11 @@ const Messages = () => {
     isSeller: true,
   };
 
-  const message = `Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident
-  maxime cum corporis esse aspernatur laborum dolorum? Animi
-  molestias aliquam, cum nesciunt, aut, ut quam vitae saepe repellat
-  nobis praesentium placeat.`;
+  const message = `Hello, I am interested in learning more about your construction services. 
+            Could you please provide more information on the types of projects you specialize 
+            in and your availability for new projects?
+            Thank you,
+            [Lowrance Negombo]`;
 
   return (
     <div className="messages">

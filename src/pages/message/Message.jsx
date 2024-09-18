@@ -16,10 +16,11 @@ const Message = () => {
               alt=""
             />
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos iure
-              mollitia perspiciatis officiis voluptate? Sequi quae officia
-              possimus, iusto labore alias mollitia eveniet nemo placeat
-              laboriosam nisi animi! Error, tenetur!
+            Hello, I am interested in learning more about your construction services. 
+            Could you please provide more information on the types of projects you specialize 
+            in and your availability for new projects?
+            Thank you,
+            [Lowrance Negombo]
             </p>
           </div>
           <div className="item owner">
@@ -28,10 +29,11 @@ const Message = () => {
               alt=""
             />
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos iure
-              mollitia perspiciatis officiis voluptate? Sequi quae officia
-              possimus, iusto labore alias mollitia eveniet nemo placeat
-              laboriosam nisi animi! Error, tenetur!
+            Hello, I am interested in learning more about your construction services. 
+            Could you please provide more information on the types of projects you specialize 
+            in and your availability for new projects?
+            Thank you,
+            [Peter Colombo]
             </p>
           </div>
           <div className="item">
@@ -40,10 +42,11 @@ const Message = () => {
               alt=""
             />
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos iure
-              mollitia perspiciatis officiis voluptate? Sequi quae officia
-              possimus, iusto labore alias mollitia eveniet nemo placeat
-              laboriosam nisi animi! Error, tenetur!
+            Hello, I am interested in learning more about your construction services. 
+            Could you please provide more information on the types of projects you specialize 
+            in and your availability for new projects?
+            Thank you,
+            [Lowrance Negombo]
             </p>
           </div>
           <div className="item owner">
@@ -52,10 +55,11 @@ const Message = () => {
               alt=""
             />
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos iure
-              mollitia perspiciatis officiis voluptate? Sequi quae officia
-              possimus, iusto labore alias mollitia eveniet nemo placeat
-              laboriosam nisi animi! Error, tenetur!
+            Hello, I am interested in learning more about your construction services. 
+            Could you please provide more information on the types of projects you specialize 
+            in and your availability for new projects?
+            Thank you,
+            [Lowrance Negombo]
             </p>
           </div>
           <div className="item">
@@ -64,10 +68,11 @@ const Message = () => {
               alt=""
             />
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos iure
-              mollitia perspiciatis officiis voluptate? Sequi quae officia
-              possimus, iusto labore alias mollitia eveniet nemo placeat
-              laboriosam nisi animi! Error, tenetur!
+            Hello, I am interested in learning more about your construction services. 
+            Could you please provide more information on the types of projects you specialize 
+            in and your availability for new projects?
+            Thank you,
+            [Lowrance Negombo]
             </p>
           </div>
           <div className="item owner">
@@ -76,10 +81,11 @@ const Message = () => {
               alt=""
             />
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos iure
-              mollitia perspiciatis officiis voluptate? Sequi quae officia
-              possimus, iusto labore alias mollitia eveniet nemo placeat
-              laboriosam nisi animi! Error, tenetur!
+            Hello, I am interested in learning more about your construction services. 
+            Could you please provide more information on the types of projects you specialize 
+            in and your availability for new projects?
+            Thank you,
+            [Lowrance Negombo]
             </p>
           </div>
           <div className="item">
@@ -88,10 +94,11 @@ const Message = () => {
               alt=""
             />
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos iure
-              mollitia perspiciatis officiis voluptate? Sequi quae officia
-              possimus, iusto labore alias mollitia eveniet nemo placeat
-              laboriosam nisi animi! Error, tenetur!
+            Hello, I am interested in learning more about your construction services. 
+            Could you please provide more information on the types of projects you specialize 
+            in and your availability for new projects?
+            Thank you,
+            [Lowrance Negombo]
             </p>
           </div>
           <div className="item owner">
@@ -100,10 +107,11 @@ const Message = () => {
               alt=""
             />
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos iure
-              mollitia perspiciatis officiis voluptate? Sequi quae officia
-              possimus, iusto labore alias mollitia eveniet nemo placeat
-              laboriosam nisi animi! Error, tenetur!
+            Hello, I am interested in learning more about your construction services. 
+            Could you please provide more information on the types of projects you specialize 
+            in and your availability for new projects?
+            Thank you,
+            [Lowrance Negombo]
             </p>
           </div>
           <div className="item">
@@ -112,10 +120,11 @@ const Message = () => {
               alt=""
             />
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos iure
-              mollitia perspiciatis officiis voluptate? Sequi quae officia
-              possimus, iusto labore alias mollitia eveniet nemo placeat
-              laboriosam nisi animi! Error, tenetur!
+            Hello, I am interested in learning more about your construction services. 
+            Could you please provide more information on the types of projects you specialize 
+            in and your availability for new projects?
+            Thank you,
+            [Lowrance Negombo]
             </p>
           </div>
           <div className="item owner">
@@ -124,10 +133,11 @@ const Message = () => {
               alt=""
             />
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos iure
-              mollitia perspiciatis officiis voluptate? Sequi quae officia
-              possimus, iusto labore alias mollitia eveniet nemo placeat
-              laboriosam nisi animi! Error, tenetur!
+            Hello, I am interested in learning more about your construction services. 
+            Could you please provide more information on the types of projects you specialize 
+            in and your availability for new projects?
+            Thank you,
+            [Lowrance Negombo]
             </p>
           </div>
           <div className="item">
@@ -136,10 +146,11 @@ const Message = () => {
               alt=""
             />
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos iure
-              mollitia perspiciatis officiis voluptate? Sequi quae officia
-              possimus, iusto labore alias mollitia eveniet nemo placeat
-              laboriosam nisi animi! Error, tenetur!
+            Hello, I am interested in learning more about your construction services. 
+            Could you please provide more information on the types of projects you specialize 
+            in and your availability for new projects?
+            Thank you,
+            [Lowrance Negombo]
             </p>
           </div>
           <div className="item">
@@ -148,10 +159,11 @@ const Message = () => {
               alt=""
             />
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos iure
-              mollitia perspiciatis officiis voluptate? Sequi quae officia
-              possimus, iusto labore alias mollitia eveniet nemo placeat
-              laboriosam nisi animi! Error, tenetur!
+            Hello, I am interested in learning more about your construction services. 
+            Could you please provide more information on the types of projects you specialize 
+            in and your availability for new projects?
+            Thank you,
+            [Lowrance Negombo]
             </p>
           </div>
           <div className="item owner">
@@ -160,10 +172,11 @@ const Message = () => {
               alt=""
             />
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos iure
-              mollitia perspiciatis officiis voluptate? Sequi quae officia
-              possimus, iusto labore alias mollitia eveniet nemo placeat
-              laboriosam nisi animi! Error, tenetur!
+            Hello, I am interested in learning more about your construction services. 
+            Could you please provide more information on the types of projects you specialize 
+            in and your availability for new projects?
+            Thank you,
+            [Lowrance Negombo]
             </p>
           </div>
           <div className="item owner">
@@ -172,10 +185,11 @@ const Message = () => {
               alt=""
             />
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos iure
-              mollitia perspiciatis officiis voluptate? Sequi quae officia
-              possimus, iusto labore alias mollitia eveniet nemo placeat
-              laboriosam nisi animi! Error, tenetur!
+            Hello, I am interested in learning more about your construction services. 
+            Could you please provide more information on the types of projects you specialize 
+            in and your availability for new projects?
+            Thank you,
+            [Lowrance Negombo]
             </p>
           </div>
           <div className="item">
@@ -184,10 +198,11 @@ const Message = () => {
               alt=""
             />
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos iure
-              mollitia perspiciatis officiis voluptate? Sequi quae officia
-              possimus, iusto labore alias mollitia eveniet nemo placeat
-              laboriosam nisi animi! Error, tenetur!
+            Hello, I am interested in learning more about your construction services. 
+            Could you please provide more information on the types of projects you specialize 
+            in and your availability for new projects?
+            Thank you,
+            [Lowrance Negombo]
             </p>
           </div>
         </div>

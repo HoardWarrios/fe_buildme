@@ -5,25 +5,6 @@ const Contactus = () => {
     return (
         
         <div className='contactus'>
-
-        <section className="bannersection">
-          <div className="bannersection">
-            <div className='banner_col1'>
-            <h1 className='title'>DO YOU FIND FOR <br/> A BUILDER?</h1>
-            <br/>
-            <p>
-              Get started on your construction journey today! Explore our
-              website to discover our wide range of services, read testimonials
-              from satisfied clients, and connect with us for any inquiries.
-            </p><br/>
-            <button className="create-profile-button">Create Your Profile</button>
-            </div>
-
-        <div className='banner_col'>
-          <img src="src\public\img\pngwing 2.png" alt="Builder" className="intro-image" />
-          </div>
-          </div>
-        </section>
         <br></br>
 
         

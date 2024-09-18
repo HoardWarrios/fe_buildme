@@ -27,6 +27,7 @@ function Navbar() {
         isBuilder: true,
     };
 
+    // nav bar main section
     return (
         <div className={active || pathname !== "/" ? "navbar active" : "navbar"}>
             <div className="container">
