@@ -49,12 +49,10 @@ function Navbar() {
                 </Link>
                 </div>
                 <div className="links">
-<<<<<<< HEAD
+
                 <Link className="link" to="/register">
                          Sign Up</Link>
-=======
-                    <span>Sign in</span>
->>>>>>> 24a3dd31caa041428bf7f4a22f2cd4289ef2caaa
+
                     {!currentUser?.isBuilder && <span>Become a Builder</span>}
                     {!currentUser && <button>Join</button>}
                     {currentUser && (
@@ -80,11 +78,7 @@ function Navbar() {
                                 <Link className="link" to="/aboutus">
                                     About
                                 </Link>
-<<<<<<< HEAD
                                 <Link className="link" to="/register">
-=======
-                                <Link className="link" to="/">
->>>>>>> 24a3dd31caa041428bf7f4a22f2cd4289ef2caaa
                                     Logout
                                 </Link>
                             </div>}

@@ -1,7 +1,5 @@
-<<<<<<< HEAD
 import "./Register.scss"
 import React, { useState } from 'react';
-
 
 const Register = () => {
     
@@ -116,22 +114,4 @@ const Register = () => {
 }
 
 
-
-=======
-import React from "react";
-import "./Register.scss"
-
-
-
-const Register = () => {
-    return (
-        <div className="register">Register</div>
-    )
-      
-    
-  
-}
-
-
->>>>>>> 24a3dd31caa041428bf7f4a22f2cd4289ef2caaa
 export default Register;
