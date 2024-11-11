@@ -8,7 +8,11 @@ export const cards = [
   {
     id: 2,
     title: "Painter",
+<<<<<<< HEAD
     desc: "Build your brand",
+=======
+    desc: "Build yor brand",
+>>>>>>> 24a3dd31caa041428bf7f4a22f2cd4289ef2caaa
     img: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhJpoIwwCuyJhbK4z2mTO8Jjd41aWpQ7fHRQXJlxByE7mKLF8EZ9WiqAFHqnhkpmGb6Rxn8CSP1idZ8yy-8kXSMbzkRESbM7NYY0IoXEjmh2i-43dQbEMOHhP_OPachvkNOBHS_gu87AxOwT_Rc-bSsaTlfBDy8hR3o8gXfsME-4QfltMcK7L9ZzlPTBMz2/s329/Painter.png",
   },
   {

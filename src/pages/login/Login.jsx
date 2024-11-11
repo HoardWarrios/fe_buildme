@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import "./Login.scss"
 import React, { useState } from 'react';
 
@@ -50,3 +51,15 @@ function Login() {
 
 
 export default Login;
+=======
+import React from 'react'
+import "./Login.scss"
+
+const Login = () => {
+    return (
+        <div className='login'>Login</div>
+    )
+}
+
+export default Login
+>>>>>>> 24a3dd31caa041428bf7f4a22f2cd4289ef2caaa

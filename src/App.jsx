@@ -70,6 +70,7 @@ function App() {
           path: "/contactus",
           element: <Contactus />,
         },
+<<<<<<< HEAD
         {
           path: "/register",
           element: <Register />,
@@ -79,6 +80,14 @@ function App() {
       ],
     },
     
+=======
+      ],
+    },
+    {
+      path: "/register",
+      element: <Register />,
+    },
+>>>>>>> 24a3dd31caa041428bf7f4a22f2cd4289ef2caaa
     {
       path: "/login",
       element: <Login />,
