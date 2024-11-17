@@ -1,0 +1,78 @@
+.aboutbox {
+    margin-left: 200px;
+    margin-right: 200px;
+    padding: 30px;
+    background-color: #d8d8d8;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    
+    
+    h1{
+        text-align: center;
+        font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    }
+
+    h4 {
+        font-size: 1.5em;
+      margin-left: 10px;
+      font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    }
+  
+    p {
+      font-size: 1.2em;
+      margin-left: 10px;
+      margin-right: 10px;
+      font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    }
+  }
+
+  .banner-section{
+    margin-left: 70px;
+    margin-right: 70px;
+    background-color: #ffe0e0;
+    margin-bottom: 0px;
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+  
+    img {
+        width: 260px;
+        height: 320px;
+        object-fit: cover;
+        margin-bottom: 1px;
+        margin-left: 150px;
+        
+      }
+      .banner_col1{
+        width: 60%;
+        padding: 0 32px; // Increase padding to add more space between columns
+        margin-top: 50px;
+      }
+    .banner_col2{
+        width: 10%;
+        padding: 0 3px; // Increase padding to add more space between columns
+  }
+  h1{
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin-left: 10px;
+    font-size: 3em;
+    }
+    p {
+        font-size: 1.25em;
+        margin-left: 10px;
+        margin-right: 10px;
+        font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+      }
+
+      .create-profile-button {
+        margin-left: 10px;
+        padding: 10px 20px;
+        font-size: 1em;
+        color: #fff;
+        background-color: #292149;
+        border: none;
+      cursor: pointer;
+      border-radius: 25px;
+      }
+
+}
