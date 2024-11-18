@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import newRequest from "../../utils/newRequest";
 import "./Navbar.scss";
 
 function Navbar() {
@@ -19,14 +20,19 @@ function Navbar() {
         };
     }, []);
 
-    // const currentUser = null
+    const currentUser = JSON.parse(localStorage.getItem("currentUser"));
 
-    const currentUser = {
-        id: 1,
-        username: "Hoard Warriors",
-        isBuilder: true,
+    const navigate = useNavigate();
+
+    const handleLogout = async () => {
+        try {
+            await newRequest.post("/auth/logout");
+            localStorage.setItem("currentUser", null);
+            navigate("/");
+        } catch (err) {
+            console.log(err);
+        }
     };
-
     // nav bar main section
     return (
         <div className={active || pathname !== "/" ? "navbar active" : "navbar"}>
@@ -38,15 +44,15 @@ function Navbar() {
                     <span className="dot">.</span>
                 </div>
                 <div className="top-nav">
-                <Link className="link-nav" to="/">
+                    <Link className="link-nav" to="/">
                         <span className="text">HOME</span>
-                </Link>
-                <Link className="link-nav" to="/aboutus">
+                    </Link>
+                    <Link className="link-nav" to="/aboutus">
                         <span className="text">ABOUT US</span>
-                </Link>
-                <Link className="link-nav" to="/contactus">
+                    </Link>
+                    <Link className="link-nav" to="/contactus">
                         <span className="text">CONTACT US</span>
-                </Link>
+                    </Link>
                 </div>
                 <div className="links">
                     <span>Sign in</span>
@@ -54,14 +60,14 @@ function Navbar() {
                     {!currentUser && <button>Join</button>}
                     {currentUser && (
                         <div className="user" onClick={() => setOpen(!open)}>
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKVgdPnMdBjCdxkKFnwvfzcvEA6RTfYRMuEA&s" alt="" />
+                            <img src={currentUser.img || "/img/noavatar.jpg"} alt="" />
                             <span>{currentUser?.username}</span>
                             {open && <div className="options">
                                 {
                                     currentUser?.isBuilder && (
-                                        <> 
+                                        <>
                                             <Link to="/gigs">Gigs</Link>
-                                            <Link className="link" to="/add"> 
+                                            <Link className="link" to="/add">
                                                 Add New Gig
                                             </Link>
                                         </>
@@ -75,7 +81,7 @@ function Navbar() {
                                 <Link className="link" to="/aboutus">
                                     About
                                 </Link>
-                                <Link className="link" to="/">
+                                <Link className="link" onClick={handleLogout}>
                                     Logout
                                 </Link>
                             </div>}
@@ -85,42 +91,42 @@ function Navbar() {
             </div>
 
             {(active || pathname !== "/") && (
-        <>
-          <hr />
-          <div className="menu">
-            <Link className="link menuLink" to="/">
-            Plumber
-            </Link>
-            <Link className="link menuLink" to="/">
-            Painter
-            </Link>
-            <Link className="link menuLink" to="/">
-            Electrician
-            </Link>
-            <Link className="link menuLink" to="/">
-            Helper
-            </Link>
-            <Link className="link menuLink" to="/">
-            Carpenter
-            </Link>
-            <Link className="link menuLink" to="/">
-            Tile
-            </Link>
-            <Link className="link menuLink" to="/">
-            Mason
-            </Link>
-            <Link className="link menuLink" to="/">
-            Aluminium
-            </Link>
-            <Link className="link menuLink" to="/">
-              Other
-            </Link>
-          </div>
-          <hr />
-        </>
-      )}
-    </div>
-  );
+                <>
+                    <hr />
+                    <div className="menu">
+                        <Link className="link menuLink" to="/">
+                            Plumber
+                        </Link>
+                        <Link className="link menuLink" to="/">
+                            Painter
+                        </Link>
+                        <Link className="link menuLink" to="/">
+                            Electrician
+                        </Link>
+                        <Link className="link menuLink" to="/">
+                            Helper
+                        </Link>
+                        <Link className="link menuLink" to="/">
+                            Carpenter
+                        </Link>
+                        <Link className="link menuLink" to="/">
+                            Tile
+                        </Link>
+                        <Link className="link menuLink" to="/">
+                            Mason
+                        </Link>
+                        <Link className="link menuLink" to="/">
+                            Aluminium
+                        </Link>
+                        <Link className="link menuLink" to="/">
+                            Other
+                        </Link>
+                    </div>
+                    <hr />
+                </>
+            )}
+        </div>
+    );
 }
 
 export default Navbar;
