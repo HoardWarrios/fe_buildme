@@ -4,35 +4,35 @@ import newRequest from "../../utils/newRequest";
 import "./Navbar.scss";
 
 function Navbar() {
-    const [active, setActive] = useState(false);
-    const [open, setOpen] = useState(false);
+  const [active, setActive] = useState(false);
+  const [open, setOpen] = useState(false);
 
-    const { pathname } = useLocation();
+  const { pathname } = useLocation();
 
-    const isActive = () => {
-        window.scrollY > 0 ? setActive(true) : setActive(false);
+  const isActive = () => {
+    window.scrollY > 0 ? setActive(true) : setActive(false);
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", isActive);
+    return () => {
+      window.removeEventListener("scroll", isActive);
     };
+  }, []);
 
-    useEffect(() => {
-        window.addEventListener("scroll", isActive);
-        return () => {
-            window.removeEventListener("scroll", isActive);
-        };
-    }, []);
+  const currentUser = JSON.parse(localStorage.getItem("currentUser"));
 
-    const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+  const navigate = useNavigate();
 
-    const navigate = useNavigate();
-
-    const handleLogout = async () => {
-        try {
-            await newRequest.post("/auth/logout");
-            localStorage.setItem("currentUser", null);
-            navigate("/");
-        } catch (err) {
-            console.log(err);
-        }
-    };
+  const handleLogout = async () => {
+    try {
+      await newRequest.post("/auth/logout");
+      localStorage.setItem("currentUser", null);
+      navigate("/");
+    } catch (err) {
+      console.log(err);
+    }
+  };
     // nav bar main section
     return (
         <div className={active || pathname !== "/" ? "navbar active" : "navbar"}>
@@ -55,12 +55,12 @@ function Navbar() {
                     </Link>
                 </div>
                 <div className="links">
-                    <span>Sign in</span>
+                   <Link to="/login" className="link">Sign in</Link>
                     {!currentUser?.isBuilder && <span>Become a Builder</span>}
                     {!currentUser && <button>Join</button>}
                     {currentUser && (
                         <div className="user" onClick={() => setOpen(!open)}>
-                            <img src={currentUser.img || "/img/noavatar.jpg"} alt="" />
+                            <img src={currentUser.img || "../../public/img/depositphotos_278387898-stock-illustration-businessman-avatar-character-icon.jpg"} alt="" />
                             <span>{currentUser?.username}</span>
                             {open && <div className="options">
                                 {
