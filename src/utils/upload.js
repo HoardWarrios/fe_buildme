@@ -1,8 +1,19 @@
 import axios from "axios";
 
-const newRequest = axios.create({
-  baseURL: "http://localhost:8800/api/",
-  withCredentials: true,
-});
+const upload = async (file) => {
+  const data = new FormData();
+  data.append("file", file);
+  data.append("upload_preset", "buildme");
 
-export default newRequest;
+  try {
+    const res = await axios.post(
+      "https://api.cloudinary.com/v1_1/dgpl8g1nn/image/upload", data);
+
+    const { url } = res.data;
+    return url;
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+export default upload;

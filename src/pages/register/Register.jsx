@@ -11,10 +11,12 @@ function Register() {
     email: "",
     password: "",
     img: "",
-    country: "",
+    city: "",
     isSeller: false,
     desc: "",
   });
+
+  console.log(user)
 
   const navigate = useNavigate();
 
@@ -68,15 +70,15 @@ function Register() {
           <input type="file" onChange={(e) => setFile(e.target.files[0])} />
           <label htmlFor="">City</label>
           <input
-            name="country"
+            name="city"
             type="text"
-            placeholder="Usa"
+            placeholder="Colombo"
             onChange={handleChange}
           />
           <button type="submit">Register</button>
         </div>
         <div className="right">
-          <h1>I want to become a seller</h1>
+          <h1>I want to become a Builder</h1>
           <div className="toggle">
             <label htmlFor="">Activate the seller account</label>
             <label className="switch">
@@ -88,7 +90,7 @@ function Register() {
           <input
             name="phone"
             type="text"
-            placeholder="+1 234 567 89"
+            placeholder="+94 234 567 89"
             onChange={handleChange}
           />
           <label htmlFor="">Description</label>
