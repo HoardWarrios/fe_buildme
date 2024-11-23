@@ -55,40 +55,46 @@ function Navbar() {
                     </Link>
                 </div>
                 <div className="links">
-                   <Link to="/login" className="link">Sign in</Link>
-                    {!currentUser?.isBuilder && <span>Become a Builder</span>}
-                    {!currentUser && <button>Join</button>}
-                    {currentUser && (
-                        <div className="user" onClick={() => setOpen(!open)}>
-                            <img src={currentUser.img || "../../public/img/depositphotos_278387898-stock-illustration-businessman-avatar-character-icon.jpg"} alt="" />
-                            <span>{currentUser?.username}</span>
-                            {open && <div className="options">
-                                {
-                                    currentUser?.isBuilder && (
-                                        <>
-                                            <Link to="/gigs">Gigs</Link>
-                                            <Link className="link" to="/add">
-                                                Add New Gig
-                                            </Link>
-                                        </>
-                                    )}
-                                <Link className="link" to="/orders">
-                                    Orders
-                                </Link>
-                                <Link className="link" to="/messages">
-                                    Messages
-                                </Link>
-                                <Link className="link" to="/aboutus">
-                                    About
-                                </Link>
-                                <Link className="link" onClick={handleLogout}>
-                                    Logout
-                                </Link>
-                            </div>}
-                        </div>
-                    )}
+          {!currentUser?.isSeller && <span>Become a Seller</span>}
+          {currentUser ? (
+            <div className="user" onClick={() => setOpen(!open)}>
+              <img src={currentUser.img || "/img/noavatar.jpg"} alt="" />
+              <span>{currentUser?.username}</span>
+              {open && (
+                <div className="options">
+                  {currentUser.isSeller && (
+                    <>
+                      <Link className="link" to="/mygigs">
+                        Gigs
+                      </Link>
+                      <Link className="link" to="/add">
+                        Add New Gig
+                      </Link>
+                    </>
+                  )}
+                  <Link className="link" to="/orders">
+                    Orders
+                  </Link>
+                  <Link className="link" to="/messages">
+                    Messages
+                  </Link>
+                  <Link className="link" onClick={handleLogout}>
+                    Logout
+                  </Link>
                 </div>
+              )}
             </div>
+          ) : (
+            <>
+              <Link to="/login" className="link">Sign in</Link>
+              <Link className="link" to="/register">
+                <button>Join</button>
+              </Link>
+            </>
+          )}
+        </div>
+          
+       
 
             {(active || pathname !== "/") && (
                 <>
@@ -126,7 +132,10 @@ function Navbar() {
                 </>
             )}
         </div>
+        </div>
+      
     );
 }
+
 
 export default Navbar;
