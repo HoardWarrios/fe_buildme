@@ -14,16 +14,22 @@ import Messages from "./pages/messages/Messages";
 import Message from "./pages/message/Message";
 import Aboutus from "./pages/aboutus/aboutus";
 import Contactus from "./pages/contactus/contactus";
-
-
+import {
+  QueryClient,
+  QueryClientProvider,
+} from "@tanstack/react-query";
 
 function App() {
+  const queryClient = new QueryClient();
+
   const Layout = () => {
     return (
       <div className="app">
-        <Navbar />
-        <Outlet />
-        <Footer />
+        <QueryClientProvider client={queryClient}>
+          <Navbar />
+          <Outlet />
+          <Footer />
+        </QueryClientProvider>
       </div>
     );
   };
