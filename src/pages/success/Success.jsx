@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import newRequest from "../../utils/newRequest";
+import "./Success.scss"; // Import the SCSS file
 
 const Success = () => {
   const { search } = useLocation();
@@ -24,9 +25,15 @@ const Success = () => {
   }, []);
 
   return (
-    <div>
-      Payment successful. You are being redirected to the orders page. Please do
-      not close the page
+    <div className="success-page">
+      <div className="success-container">
+        <div className="success-icon">&#10004;</div>
+        <h1 className="success-message">Payment Successful!</h1>
+        <p className="success-text">
+          You are being redirected to the orders page. Please do not close this
+          page.
+        </p>
+      </div>
     </div>
   );
 };

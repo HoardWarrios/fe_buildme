@@ -62,8 +62,10 @@ const Add = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     mutation.mutate(state);
-    // navigate("/mygigs")
+    navigate("/mygigs")
   };
+
+  console.log(state)
 
   return (
     <div className="add">
@@ -80,14 +82,16 @@ const Add = () => {
             />
             <label htmlFor="">Category</label>
             <select name="cat" id="cat" onChange={handleChange}>
-              <option value="design">Painter</option>
-              <option value="web">Plumber</option>
-              <option value="animation">Roofer</option>
-              <option value="music">Tiler</option>
-              <option value="music">Mason</option>
-              <option value="music">Helper</option>
-              <option value="music">Electrician</option>
-              <option value="music">Aluminiumn</option>
+              <option>Select your category</option>
+              <option value="painter">Painter</option>
+              <option value="plumber">Plumber</option>
+              <option value="roofer">Roofer</option>
+              <option value="tiller">Tiller</option>
+              <option value="mason">Mason</option>
+              <option value="electritian">Electritian</option>
+              <option value="aluminiumn">Aluminiumn</option>
+              <option value="helper">Helper</option>
+              
             </select>
             <div className="images">
               <div className="imagesInputs">
@@ -123,7 +127,7 @@ const Add = () => {
             <input
               type="text"
               name="shortTitle"
-              placeholder="e.g. Interior & Exterior Painting"
+              placeholder="e.g. One-page web design"
               onChange={handleChange}
             />
             <label htmlFor="">Short Description</label>
@@ -135,7 +139,7 @@ const Add = () => {
               cols="30"
               rows="10"
             ></textarea>
-            <label htmlFor="">Service Time (e.g. 3 days)</label>
+            <label htmlFor="">Delivery Time (e.g. 3 days)</label>
             <input type="number" name="deliveryTime" onChange={handleChange} />
             <label htmlFor="">Revision Number</label>
             <input
@@ -145,7 +149,7 @@ const Add = () => {
             />
             <label htmlFor="">Add Features</label>
             <form action="" className="add" onSubmit={handleFeature}>
-              <input type="text" placeholder="e.g. Quick and clean service with minimal disruption" />
+              <input type="text" placeholder="e.g. page design" />
               <button type="submit">add</button>
             </form>
             <div className="addedFeatures">

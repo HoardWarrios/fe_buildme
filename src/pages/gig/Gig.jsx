@@ -106,7 +106,7 @@ function Gig() {
                   <div className="items">
                     <div className="item">
                       <span className="title">From</span>
-                      <span className="desc">{dataUser.country}</span>
+                      <span className="desc">{dataUser.city}</span>
                     </div>
                     <div className="item">
                       <span className="title">Member since</span>

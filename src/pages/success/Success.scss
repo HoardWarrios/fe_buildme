@@ -1,0 +1,39 @@
+.success-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #4caf50, #81c784);
+    color: #fff;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .success-container {
+    text-align: center;
+    background: #ffffff;
+    color: #4caf50;
+    padding: 40px 20px;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    width: 90%;
+  }
+  
+  .success-icon {
+    font-size: 3rem;
+    color: #4caf50;
+    margin-bottom: 20px;
+  }
+  
+  .success-message {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+  
+  .success-text {
+    font-size: 1rem;
+    margin-top: 0;
+    color: #666;
+  }
+  

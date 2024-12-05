@@ -27,7 +27,9 @@ function Navbar() {
   const handleLogout = async () => {
     try {
       await newRequest.post("/auth/logout");
-      localStorage.setItem("currentUser", null);
+      // localStorage.setItem("currentUser", null);
+      localStorage.removeItem("currentUser");
+      window.location.reload();
       navigate("/");
     } catch (err) {
       console.log(err);
@@ -93,44 +95,6 @@ function Navbar() {
             </>
           )}
         </div>
-          
-       
-
-            {(active || pathname !== "/") && (
-                <>
-                    <hr />
-                    <div className="menu">
-                        <Link className="link menuLink" to="/">
-                            Plumber
-                        </Link>
-                        <Link className="link menuLink" to="/">
-                            Painter
-                        </Link>
-                        <Link className="link menuLink" to="/">
-                            Electrician
-                        </Link>
-                        <Link className="link menuLink" to="/">
-                            Helper
-                        </Link>
-                        <Link className="link menuLink" to="/">
-                            Carpenter
-                        </Link>
-                        <Link className="link menuLink" to="/">
-                            Tile
-                        </Link>
-                        <Link className="link menuLink" to="/">
-                            Mason
-                        </Link>
-                        <Link className="link menuLink" to="/">
-                            Aluminium
-                        </Link>
-                        <Link className="link menuLink" to="/">
-                            Other
-                        </Link>
-                    </div>
-                    <hr />
-                </>
-            )}
         </div>
         </div>
       
