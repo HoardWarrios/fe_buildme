@@ -1,17 +1,17 @@
 import React, { useReducer, useState } from "react";
 import "./AddPlan.scss";
-import { gigReducer, INITIAL_STATE } from "../../reducers/gigReducer";
+import { planReducer, INITIAL_STATE } from "../../reducers/planReducer";
 import upload from "../../utils/upload";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import newRequest from "../../utils/newRequest";
 import { useNavigate } from "react-router-dom";
 
-const Add = () => {
+const AddPlan = () => {
   const [singleFile, setSingleFile] = useState(undefined);
   const [files, setFiles] = useState([]);
   const [uploading, setUploading] = useState(false);
 
-  const [state, dispatch] = useReducer(gigReducer, INITIAL_STATE);
+  const [state, dispatch] = useReducer(planReducer, INITIAL_STATE);
 
   const handleChange = (e) => {
     dispatch({
@@ -51,18 +51,18 @@ const Add = () => {
   const queryClient = useQueryClient();
 
   const mutation = useMutation({
-    mutationFn: (gig) => {
-      return newRequest.post("/gigs", gig);
+    mutationFn: (plan) => {
+      return newRequest.post("/plans", plan);
     },
     onSuccess: () => {
-      queryClient.invalidateQueries(["myGigs"]);
+      queryClient.invalidateQueries(["pay"]);
     },
   });
 
   const handleSubmit = (e) => {
     e.preventDefault();
     mutation.mutate(state);
-    navigate("/mygigs")
+    navigate("/pay")
   };
 
   console.log(state)
