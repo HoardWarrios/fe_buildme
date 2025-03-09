@@ -6,27 +6,29 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import newRequest from "../../utils/newRequest";
 
 function MyGigs() {
-  const currentUser = getCurrentUser();
+  const currentUser = getCurrentUser();//Get current user from local storage
 
   const queryClient = useQueryClient();
 
   const { isLoading, error, data } = useQuery({
     queryKey: ["myGigs"],
     queryFn: () =>
-      newRequest.get(`/gigs?userId=${currentUser._id}`).then((res) => {
+      newRequest.get(`/gigs?userId=${currentUser._id}`).then((res) => {//Get current user id
         return res.data;
       }),
   });
 
+  //Pass gigId to delete a gig
   const mutation = useMutation({
     mutationFn: (_id) => {
       return newRequest.delete(`/gigs/${_id}`);
     },
     onSuccess: () => {
-      queryClient.invalidateQueries(["myGigs"]);
+      queryClient.invalidateQueries(["myGigs"]);//update myGigs
     },
   });
 
+  //Delete function using gigId
   const handleDelete = (_id) => {
     mutation.mutate(_id);
   };
@@ -47,6 +49,8 @@ function MyGigs() {
               </Link>
             )}
           </div>
+
+          {/* Gig info table */}
           <table>
             <tr>
               <th>Image</th>
@@ -55,6 +59,8 @@ function MyGigs() {
               <th>Sales</th>
               <th>Action</th>
             </tr>
+
+            {/* Get Gig info map to gig */}
             {data.map((gig) => (
               <tr key={gig._id}>
                 <td>

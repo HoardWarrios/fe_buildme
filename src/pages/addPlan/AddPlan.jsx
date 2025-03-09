@@ -4,9 +4,11 @@ import { planReducer, INITIAL_STATE } from "../../reducers/planReducer";
 import upload from "../../utils/upload";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import newRequest from "../../utils/newRequest";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams, Link } from "react-router-dom";
 
 const AddPlan = () => {
+  const { gigId } = useParams();
+
   const [singleFile, setSingleFile] = useState(undefined);
   const [files, setFiles] = useState([]);
   const [uploading, setUploading] = useState(false);
@@ -55,14 +57,14 @@ const AddPlan = () => {
       return newRequest.post("/plans", plan);
     },
     onSuccess: () => {
-      queryClient.invalidateQueries(["pay"]);
+      queryClient.invalidateQueries(["myPlans"]);
     },
   });
 
   const handleSubmit = (e) => {
     e.preventDefault();
     mutation.mutate(state);
-    navigate("/pay")
+    navigate("/myplans")
   };
 
   console.log(state)
@@ -70,37 +72,25 @@ const AddPlan = () => {
   return (
     <div className="add">
       <div className="container">
-        <h1>Add New Gig</h1>
+        <h1>Service Request Form</h1>
         <div className="sections">
           <div className="info">
-            <label htmlFor="">Title</label>
+            <label htmlFor="">Request Title</label>
             <input
               type="text"
               name="title"
-              placeholder="e.g. I will do something I'm really good at"
+              placeholder="e.g. Need to paint my house"
               onChange={handleChange}
             />
-            <label htmlFor="">Category</label>
-            <select name="cat" id="cat" onChange={handleChange}>
-              <option>Select your category</option>
-              <option value="painter">Painter</option>
-              <option value="plumber">Plumber</option>
-              <option value="roofer">Roofer</option>
-              <option value="tiller">Tiller</option>
-              <option value="mason">Mason</option>
-              <option value="electritian">Electritian</option>
-              <option value="aluminiumn">Aluminiumn</option>
-              <option value="helper">Helper</option>
-              
-            </select>
+
             <div className="images">
               <div className="imagesInputs">
-                <label htmlFor="">Cover Image</label>
+                <label htmlFor="">Upload House/Building Plan</label>
                 <input
                   type="file"
                   onChange={(e) => setSingleFile(e.target.files[0])}
                 />
-                <label htmlFor="">Upload Images</label>
+                <label htmlFor="">Upload Any Related Images</label>
                 <input
                   type="file"
                   multiple
@@ -115,41 +105,28 @@ const AddPlan = () => {
             <textarea
               name="desc"
               id=""
-              placeholder="Brief descriptions to introduce your service to customers"
+              placeholder="Brief description about your request"
               cols="0"
               rows="16"
               onChange={handleChange}
             ></textarea>
-            <button onClick={handleSubmit}>Create</button>
-          </div>
-          <div className="details">
-            <label htmlFor="">Service Title</label>
-            <input
-              type="text"
-              name="shortTitle"
-              placeholder="e.g. One-page web design"
-              onChange={handleChange}
-            />
-            <label htmlFor="">Short Description</label>
+           
+            <label htmlFor="">Home Address</label>
             <textarea
               name="shortDesc"
               onChange={handleChange}
               id=""
-              placeholder="Short description of your service"
+              placeholder="Address where the service is needed"
               cols="30"
               rows="10"
             ></textarea>
-            <label htmlFor="">Delivery Time (e.g. 3 days)</label>
+            
+            <label htmlFor="">Time-bound (e.g. 7 days)</label>
             <input type="number" name="deliveryTime" onChange={handleChange} />
-            <label htmlFor="">Revision Number</label>
-            <input
-              type="number"
-              name="revisionNumber"
-              onChange={handleChange}
-            />
-            <label htmlFor="">Add Features</label>
+
+            <label htmlFor="">Service Features</label>
             <form action="" className="add" onSubmit={handleFeature}>
-              <input type="text" placeholder="e.g. page design" />
+              <input type="text" placeholder="e.g. Urgent, Good Quility" />
               <button type="submit">add</button>
             </form>
             <div className="addedFeatures">
@@ -166,8 +143,7 @@ const AddPlan = () => {
                 </div>
               ))}
             </div>
-            <label htmlFor="">Price</label>
-            <input type="number" onChange={handleChange} name="price" />
+            <button onClick={handleSubmit}>Continue</button>
           </div>
         </div>
       </div>

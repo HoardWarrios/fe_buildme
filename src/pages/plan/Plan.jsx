@@ -1,11 +1,11 @@
 import React from "react";
-import "./UserPlan.scss";
+import "./Plan.scss";
 import { Slider } from "infinite-react-carousel/lib";
 import { Link, useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import newRequest from "../../utils/newRequest";
 
-function UserPlan() {
+function Plan() {
   const { id } = useParams();
 
   const { isLoading, error, data } = useQuery({
@@ -142,4 +142,4 @@ function UserPlan() {
   );
 }
 
-export default UserPlan;
+export default Plan;

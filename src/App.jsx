@@ -19,8 +19,9 @@ import {
   QueryClientProvider,
 } from "@tanstack/react-query";
 import MyGigs from "./pages/myGigs/MyGigs";
+import MyPlans from "./pages/myPlans/MyPlans";
 import AddPlan from "./pages/addPlan/AddPlan";
-import UserPlan from "./pages/userPlan/UserPlan";
+import Plan from "./pages/plan/Plan";
 import Pay from "./pages/pay/Pay";
 import Success from "./pages/success/Success";
 function App() {
@@ -64,12 +65,16 @@ function App() {
           element: <Gig />,
         },
         {
-          path: "/userPlan",
-          element: <UserPlan />,
+          path: "/plan/:id",
+          element: <Plan />,
         },
         {
-          path: "/addPlan",
+          path: "/addPlan/:id",
           element: <AddPlan />,
+        },
+        {
+          path: "/myPlans",
+          element: <MyPlans />,
         },
         {
           path: "/orders",

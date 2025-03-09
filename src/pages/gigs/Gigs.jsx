@@ -17,7 +17,7 @@ function Gigs() {
     queryKey: ["repoData"],
     queryFn: () =>
       newRequest.get(
-          "/gigs"
+          `/gigs`
         )
         .then((res) => {
           return res.data;
