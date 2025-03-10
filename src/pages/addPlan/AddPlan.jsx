@@ -85,7 +85,7 @@ const AddPlan = () => {
       },
     
     onSuccess: () => {
-      queryClient.invalidateQueries(["pay"]);
+      queryClient.invalidateQueries(["plan"]);
     },
   });
 
@@ -94,7 +94,7 @@ const AddPlan = () => {
 
     mutation.mutate(state);
 
-    navigate(`/pay/${gigId}`)
+    navigate("/myPlans")
   };
 
   console.log(state)
@@ -102,10 +102,10 @@ const AddPlan = () => {
   return (
     <div className="add">
       <div className="container">
-        <h1>Service Request Form</h1>
+        <h1>Upload You Plan</h1>
         <div className="sections">
           <div className="info">
-            <label htmlFor="">Request Title</label>
+            <label htmlFor="">Requesting Service</label>
             <input
               type="text"
               name="title"

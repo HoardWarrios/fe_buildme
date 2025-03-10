@@ -8,6 +8,9 @@ import newRequest from "../../utils/newRequest";
 function MyPlans() {
   const currentUser = getCurrentUser();
 
+   // Fetch planId from URL
+      // const { id } = useParams();
+
   const queryClient = useQueryClient();
 
   const { isLoading, error, data } = useQuery({
@@ -47,26 +50,32 @@ function MyPlans() {
               <th>Plan</th>
               <th>Title</th>
               <th>Builder</th>
-              <th>Payment</th>
               <th>Cancel</th>
+              <th>Proceed</th>
             </tr>
             {data.map((plan) => (
               <tr key={plan._id}>
                 <td>
                 <div className="planCard">
+                <Link to={`/Plan/${plan._id}`}>
                 <img src={plan.cover} alt="" />
+                </Link>
                 </div>
                 </td>
                 <td>{plan.title}</td>
-                <td>{plan.deliveryTime}</td>
-                <td>{plan.shortDesc}</td>
+                <td>{plan.sellerId}</td>
                 <td>
-                  <img
+                <img
                     className="delete"
                     src="./img/cancel.jpg"
                     alt=""
                     onClick={() => handleDelete(plan._id)}
                   />
+                </td>
+                <td>
+                  <Link to={`/Plan/${plan._id}`}>
+                    <img className="continue" src="./img/continue_b.png"/>
+                  </Link>
                 </td>
               </tr>
             ))}

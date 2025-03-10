@@ -8,6 +8,7 @@ const Orders = () => {
   const currentUser = JSON.parse(localStorage.getItem("currentUser"));
 
   const navigate = useNavigate();
+
   const { isLoading, error, data } = useQuery({
     queryKey: ["orders"],
     queryFn: () =>
@@ -36,6 +37,17 @@ const Orders = () => {
   };
 
 
+  const handlePlan = async (order) => {
+    const planId = order.planId;
+
+    try {
+      const res = await newRequest.get(`/plans/single/${planId}`);
+      navigate(`/viewPlan/${planId}`);
+    } catch (err) {
+    }
+  };
+
+
   return (
     <div className="orders">
       {isLoading ? ("loading") : error ? ("error") : (
@@ -47,7 +59,7 @@ const Orders = () => {
             <tr>
               <th>Image</th>
               <th>Title</th>
-              <th>Price</th>
+              <th>View Plan</th>
               <th>Contact</th>
             </tr>
             {data.map((order) => (
@@ -56,7 +68,14 @@ const Orders = () => {
                   <img className="image" src={order.img} alt="" />
                 </td>
                 <td>{order.title}</td>
-                <td>{order.price}</td>
+                <td>                 
+                  <img
+                    className="message"
+                    src="./img/plan_2.png"
+                    alt=""
+                    onClick={() => handlePlan(order)}
+                  />
+                </td>
                 <td>
                   <img
                     className="message"

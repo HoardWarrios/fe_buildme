@@ -44,6 +44,7 @@ function Plan() {
               BuildME {">"} UserPlan {">"}
             </span>
             <h1>{data.title}</h1>
+            
             {isLoadingUser ? (
               "loading"
             ) : errorUser ? (
@@ -58,12 +59,19 @@ function Plan() {
                 <span>{dataUser.username}</span>
               </div>
             )}
+              <div className="userplan">
+                <img
+                  src={data.cover}
+                  alt=""
+                />
+              </div>
+
             <Slider slidesToShow={1} arrowsScroll={1} className="slider">
               {data.images.map((img) => (
                 <img key={img} src={img} alt="" />
               ))}
             </Slider>
-            <h2>About This </h2>
+            <h2>Request description </h2>
             <p>{data.desc}</p>
             {isLoadingUser ? (
               "loading"
@@ -111,17 +119,13 @@ function Plan() {
           </div>
           <div className="right">
             <div className="price">
-              <h3>{data.shortTitle}</h3>
+              <h3>{data.title}</h3>
             </div>
-            <p>{data.shortDesc}</p>
+            <p>{data.address}</p>
             <div className="details">
               <div className="item">
                 <img src="/img/clock.png" alt="" />
-                <span>{data.deliveryDate} Days Delivery</span>
-              </div>
-              <div className="item">
-                <img src="/img/recycle.png" alt="" />
-                <span>{data.revisionNumber} Revisions</span>
+                <span>{data.requestTime} Days Time bound</span>
               </div>
             </div>
             <div className="features">
@@ -133,7 +137,7 @@ function Plan() {
               ))}
             </div>
             <Link to={`/pay/${id}`}>
-            <button>Continue</button>
+            <button>Make Advance Payment</button>
             </Link>
           </div>
         </div>

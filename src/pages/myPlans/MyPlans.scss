@@ -41,6 +41,8 @@
             object-fit: cover;
           }
 
+
+
           .planCard {
             width: 60px;
             height: 45px;
@@ -54,6 +56,12 @@
           
           }
 
+          .continue {
+            width: 130px;
+            cursor: pointer;
+            align-items: center;
+          }
+
           .delete {
             width: 20px;
             cursor: pointer;
@@ -61,7 +69,7 @@
 
         }
         &:nth-child(even) {
-          background-color: #1dbf730f;
+          background-color: #1d66bf0f;
         }
       }
     }

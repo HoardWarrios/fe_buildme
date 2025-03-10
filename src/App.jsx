@@ -22,6 +22,7 @@ import MyGigs from "./pages/myGigs/MyGigs";
 import MyPlans from "./pages/myPlans/MyPlans";
 import AddPlan from "./pages/addPlan/AddPlan";
 import Plan from "./pages/plan/Plan";
+import ViewPlan from "./pages/viewPlan/ViewPlan";
 import Pay from "./pages/pay/Pay";
 import Success from "./pages/success/Success";
 function App() {
@@ -75,6 +76,10 @@ function App() {
         {
           path: "/myPlans",
           element: <MyPlans />,
+        },
+        {
+          path: "/viewPlan/:id",
+          element: <ViewPlan />,
         },
         {
           path: "/orders",
