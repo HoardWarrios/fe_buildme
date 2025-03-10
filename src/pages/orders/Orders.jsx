@@ -16,6 +16,7 @@ const Orders = () => {
       }),
   });
 
+
   const handleContact = async (order) => {
     const sellerId = order.sellerId;
     const buyerId = order.buyerId;
@@ -33,13 +34,11 @@ const Orders = () => {
       }
     }
   };
+
+
   return (
     <div className="orders">
-      {isLoading ? (
-        "loading"
-      ) : error ? (
-        "error"
-      ) : (
+      {isLoading ? ("loading") : error ? ("error") : (
         <div className="container">
           <div className="title">
             <h1>Orders</h1>

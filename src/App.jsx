@@ -69,7 +69,7 @@ function App() {
           element: <Plan />,
         },
         {
-          path: "/addPlan/:id",
+          path: "/addPlan/:gigId",
           element: <AddPlan />,
         },
         {

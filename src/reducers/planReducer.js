@@ -4,11 +4,11 @@ export const INITIAL_STATE = {
   cover: "",
   images: [],
   desc: "",
-  shortTitle: "",
-  shortDesc: "",
-  deliveryTime: 0,
-  revisionNumber: 0,
+  address: "",
+  requestTime: 0,
   features: [],
+  gigId: "",
+  sellerId: "",
 };
 
 export const planReducer = (state, action) => {

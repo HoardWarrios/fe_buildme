@@ -12,7 +12,8 @@ const Add = () => {
   const [files, setFiles] = useState([]);//Image array
   const [uploading, setUploading] = useState(false);//Upload
 
-  const [state, dispatch] = useReducer(gigReducer, INITIAL_STATE);//Get intial state using gigReducer
+  //Get intial state using gigReducer
+  const [state, dispatch] = useReducer(gigReducer, INITIAL_STATE);
 
   // HANDLE INPUT CHANGE
   const handleChange = (e) => {

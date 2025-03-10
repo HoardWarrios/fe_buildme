@@ -2,25 +2,32 @@ import React, { useReducer, useState } from "react";
 import "./AddPlan.scss";
 import { planReducer, INITIAL_STATE } from "../../reducers/planReducer";
 import upload from "../../utils/upload";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { useMutation, useQueryClient ,useQuery } from "@tanstack/react-query";
 import newRequest from "../../utils/newRequest";
 import { useNavigate, useParams, Link } from "react-router-dom";
 
 const AddPlan = () => {
-  const { gigId } = useParams();
 
-  const [singleFile, setSingleFile] = useState(undefined);
-  const [files, setFiles] = useState([]);
-  const [uploading, setUploading] = useState(false);
+    // Fetch gigID from URL
+    const { gigId } = useParams();
 
+  // Use states for
+  const [singleFile, setSingleFile] = useState(undefined);//Single image
+  const [files, setFiles] = useState([]);//Image array
+  const [uploading, setUploading] = useState(false);//Upload
+
+  //Get intial state using gigReducer
   const [state, dispatch] = useReducer(planReducer, INITIAL_STATE);
 
+  // HANDLE INPUT CHANGE
   const handleChange = (e) => {
     dispatch({
       type: "CHANGE_INPUT",
       payload: { name: e.target.name, value: e.target.value },
     });
   };
+
+  // HANDLE FEATURES
   const handleFeature = (e) => {
     e.preventDefault();
     dispatch({
@@ -30,6 +37,7 @@ const AddPlan = () => {
     e.target[0].value = "";
   };
 
+  // HANDLE UPLOAD
   const handleUpload = async () => {
     setUploading(true);
     try {
@@ -41,8 +49,26 @@ const AddPlan = () => {
           return url;
         })
       );
-      setUploading(false);
+
+      // Fetch gig details using gigId
+      const res = await newRequest.get(`/gigs/single/${gigId}`);
+      const gigData = res.data;
+
+
       dispatch({ type: "ADD_IMAGES", payload: { cover, images } });
+
+      dispatch({
+        type: "CHANGE_INPUT",
+        payload: { name: "gigId", value: gigData._id }
+      });
+  
+      dispatch({
+        type: "CHANGE_INPUT",
+        payload: { name: "sellerId", value: gigData.userId }
+      });
+
+      setUploading(false);
+
     } catch (err) {
       console.log(err);
     }
@@ -52,19 +78,23 @@ const AddPlan = () => {
 
   const queryClient = useQueryClient();
 
-  const mutation = useMutation({
-    mutationFn: (plan) => {
-      return newRequest.post("/plans", plan);
-    },
+  // Mutation functio 
+    const mutation = useMutation({
+      mutationFn: (plan) => {
+        return newRequest.post(`/plans/${gigId}`, plan);//request to plans endpoint
+      },
+    
     onSuccess: () => {
-      queryClient.invalidateQueries(["myPlans"]);
+      queryClient.invalidateQueries(["pay"]);
     },
   });
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     mutation.mutate(state);
-    navigate("/myplans")
+
+    navigate(`/pay/${gigId}`)
   };
 
   console.log(state)
@@ -113,7 +143,7 @@ const AddPlan = () => {
            
             <label htmlFor="">Home Address</label>
             <textarea
-              name="shortDesc"
+              name="address"
               onChange={handleChange}
               id=""
               placeholder="Address where the service is needed"
@@ -122,7 +152,7 @@ const AddPlan = () => {
             ></textarea>
             
             <label htmlFor="">Time-bound (e.g. 7 days)</label>
-            <input type="number" name="deliveryTime" onChange={handleChange} />
+            <input type="number" name="requestTime" onChange={handleChange} />
 
             <label htmlFor="">Service Features</label>
             <form action="" className="add" onSubmit={handleFeature}>

@@ -18,7 +18,7 @@ function Featured() {
         <div className="left">
           {/* Banner title */}
           <h1>
-          ARE YOU IN SEARCH OF A BUILDER OR 
+          DO YOU FIND FOR A BUILDER OR 
           <br />ARE YOU A BUILDER?
           </h1>
           {/* Banner description */}
