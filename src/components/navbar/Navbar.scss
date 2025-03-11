@@ -50,6 +50,18 @@
         span {
           white-space: nowrap;
         }
+
+        .bebuilder{
+          color: #363636;
+          font-weight: bold;
+          text-decoration: none; 
+      
+          &:hover {
+            color: #111b75;
+          }
+        }
+
+        
   
         .user {
           display: flex;

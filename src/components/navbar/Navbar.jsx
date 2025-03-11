@@ -3,14 +3,15 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import newRequest from "../../utils/newRequest";
 import "./Navbar.scss";
 
+//NAVIGATION BAR FUNCTION
 function Navbar() {
-  const [active, setActive] = useState(false);
-  const [open, setOpen] = useState(false);
+  const [active, setActive] = useState(false);//Active navbar
+  const [open, setOpen] = useState(false);//Opening Menus
 
   const { pathname } = useLocation();
 
   const isActive = () => {
-    window.scrollY > 0 ? setActive(true) : setActive(false);
+    window.scrollY > 0 ? setActive(true) : setActive(false);//If scrolling set nave bar active : else false
   };
 
   useEffect(() => {
@@ -21,30 +22,33 @@ function Navbar() {
   }, []);
 
   const currentUser = JSON.parse(localStorage.getItem("currentUser"));
-
   const navigate = useNavigate();
 
+  // LOGOUT FUNCTION
   const handleLogout = async () => {
     try {
       await newRequest.post("/auth/logout");
       // localStorage.setItem("currentUser", null);
-      localStorage.removeItem("currentUser");
-      window.location.reload();
+      localStorage.removeItem("currentUser");//Removes cookie when logout
+      window.location.reload();//refresh page
       navigate("/");
     } catch (err) {
       console.log(err);
     }
   };
-    // nav bar main section
+    // Navbar main section
     return (
         <div className={active || pathname !== "/" ? "navbar active" : "navbar"}>
             <div className="container">
+                {/* BUILDME LOGO */}
                 <div className="logo">
                     <Link className="link" to="/">
                         <span className="text">BuildME</span>
                     </Link>
                     <span className="dot">.</span>
                 </div>
+
+                {/* Top navigation */}
                 <div className="top-nav">
                     <Link className="link-nav" to="/">
                         <span className="text">HOME</span>
@@ -56,24 +60,34 @@ function Navbar() {
                         <span className="text">CONTACT US</span>
                     </Link>
                 </div>
+
+
                 <div className="links">
-          {!currentUser?.isSeller && <span>Become a Seller</span>}
+          
+          {!currentUser?.isSeller && <Link className="bebuilder" to="/register"><span >Become a builder</span></Link>}
+
+          {/* Current user profile */}
           {currentUser ? (
             <div className="user" onClick={() => setOpen(!open)}>
               <img src={currentUser.img || "/img/noavatar.jpg"} alt="" />
               <span>{currentUser?.username}</span>
+
               {open && (
                 <div className="options">
+
+                  {/* If seller make these options available */}
                   {currentUser.isSeller && (
                     <>
                       <Link className="link" to="/mygigs">
-                        Gigs
+                        Projects
                       </Link>
                       <Link className="link" to="/add">
-                        Add New Gig
+                        Add New Project
                       </Link>
                     </>
                   )}
+
+                  {/* Default options available */}
                   <Link className="link" to="/orders">
                     Orders
                   </Link>

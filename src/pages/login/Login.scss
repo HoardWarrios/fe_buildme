@@ -40,5 +40,23 @@
         color: red;
         font-size: 12px;
       }
+
+      p {
+        font-size: 14px;
+        color: #6f6f6f;
+        text-align: center;
+      
+        .signup { 
+          color: #5c8fca;
+          font-weight: bold;
+          text-decoration: none; 
+      
+          &:hover {
+            color: #101756;
+            text-decoration: underline; 
+          }
+
+        }
+      }
     }
-  }
+}
