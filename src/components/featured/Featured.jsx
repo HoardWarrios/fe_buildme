@@ -40,7 +40,7 @@ function Featured() {
         </div>
         {/* Banner image */}
         <div className="right">
-          <img src="src\public\img\image5.jpg" alt="" />
+          <img src="src\public\img\image6.jpg" alt="" />
         </div>
       </div>
     </div>

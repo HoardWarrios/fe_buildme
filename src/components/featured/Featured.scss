@@ -5,14 +5,18 @@
   color: rgb(0, 0, 0);
 
   .container {
-    width: 1400px;
+    width: 1500px;
     display: flex;
     align-items: center;
+    background-color: #141733;
 
     .left {
       display: flex;
       flex-direction: column;
       gap: 30px;
+      padding-left: 5%;
+      padding-right: 5%;
+      color: #ffffff;
 
       h1 {
         font-size: 40px;
@@ -24,8 +28,7 @@
       }
 
       .search {
-        margin-left: 40px;
-        margin-right: 40px;
+       
         background-color: white;
         border-radius: 5px;
         display: flex;
@@ -57,7 +60,7 @@
           width: 120px;
           height: 50px;
           border: none;
-          background-color: #000000;
+          background-color: #424769;
           color: white;
           align-self: flex-end;
           cursor: pointer;
@@ -86,10 +89,9 @@
     }
 
     .right {
-   
+      padding-right: 2%;
       height: 80%;
       img {
-        padding-left: 5%;
         height: 100%;
         object-fit: contain;
       }
