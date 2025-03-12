@@ -22,6 +22,8 @@ function Navbar() {
   }, []);
 
   const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+  // const isSeller = currentUser.isSeller;
+
   const navigate = useNavigate();
 
   // LOGOUT FUNCTION
@@ -86,6 +88,17 @@ function Navbar() {
                       </Link>
                     </>
                   )}
+
+                  {/* If not seller make these options available */}
+                  {!currentUser.isSeller && (
+                    <>
+                      <Link className="link" to="/myplans">
+                        My Plans
+                      </Link>
+                    </>
+                  )}
+
+
 
                   {/* Default options available */}
                   <Link className="link" to="/orders">

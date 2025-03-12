@@ -6,18 +6,19 @@ import { useQuery } from "@tanstack/react-query";
 import newRequest from "../../utils/newRequest";
 import Reviews from "../../components/reviews/Reviews";
 
+//PROJECT/GIG PAGE FUNCTION
 function Gig() {
-  const { id } = useParams();
+  const { id } = useParams();// Get gig id from URL bar
 
   const { isLoading, error, data } = useQuery({
     queryKey: ["gig"],
     queryFn: () =>
       newRequest.get(`/gigs/single/${id}`).then((res) => {
-        return res.data;
+        return res.data;// Get gig info 
       }),
   });
 
-  const userId = data?.userId;
+  const userId = data?.userId;// If there is data get userId
 
   const {
     isLoading: isLoadingUser,
@@ -29,10 +30,15 @@ function Gig() {
       newRequest.get(`/users/${userId}`).then((res) => {
         return res.data;
       }),
-    enabled: !!userId,
+    enabled: !!userId,//Enable userId only if data of the user exists
   });
 
+  const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+  const isSeller = currentUser.isSeller;
+
+  // PROJECT/GIG PAGE DESIGN
   return (
+    //DISPLAY GIG INFO
     <div className="gig">
       {isLoading ? (
         "loading"
@@ -50,15 +56,18 @@ function Gig() {
             ) : errorUser ? (
               "Something went wrong!"
             ) : (
+              // DISPLAY GIG USER INFO
               <div className="user">
                 <img
                   className="pp"
                   src={dataUser.img || "/img/noavatar.jpg"}
                   alt=""
                 />
+                {/* Display avg stars */}
                 <span>{dataUser.username}</span>
                 {!isNaN(data.totalStars / data.starNumber) && (
                   <div className="stars">
+                    {/* Display stars using an array */}
                     {Array(Math.round(data.totalStars / data.starNumber))
                       .fill()
                       .map((item, i) => (
@@ -69,11 +78,14 @@ function Gig() {
                 )}
               </div>
             )}
+            {/* Image slider */}
             <Slider slidesToShow={1} arrowsScroll={1} className="slider">
               {data.images.map((img) => (
                 <img key={img} src={img} alt="" />
               ))}
             </Slider>
+            
+            {/* Project description */}
             <h2>About This Project</h2>
             <p>{data.desc}</p>
             {isLoadingUser ? (
@@ -81,6 +93,7 @@ function Gig() {
             ) : errorUser ? (
               "Something went wrong!"
             ) : (
+              // ABOUT BUILDER
               <div className="seller">
                 <h2>About The Builder</h2>
                 <div className="user">
@@ -132,6 +145,8 @@ function Gig() {
             )}
             <Reviews gigId={id} />
           </div>
+
+          {!isSeller && (
           <div className="right">
             <div className="price">
               <h3>{data.shortTitle}</h3>
@@ -160,6 +175,7 @@ function Gig() {
             <button>Take Service</button>
             </Link>
           </div>
+          )}
         </div>
       )}
     </div>

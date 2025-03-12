@@ -23,6 +23,9 @@ const Reviews = ({ gigId }) => {
     }
   });
 
+  const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+  const isSeller = currentUser.isSeller;
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const desc = e.target[0].value;
@@ -30,14 +33,21 @@ const Reviews = ({ gigId }) => {
     mutation.mutate({ gigId, desc, star });
   };
 
+
+
   return (
     <div className="reviews">
+
+      {/* Display given reviews */}
       <h2>Reviews</h2>
       {isLoading
         ? "loading"
         : error
         ? "Something went wrong!"
         : data.map((review) => <Review key={review._id} review={review} />)}
+
+       {/* Add a review */}
+      {!isSeller && (
       <div className="add">
         <h3>Add a review</h3>
         <form action="" className="addForm" onSubmit={handleSubmit}>
@@ -52,6 +62,7 @@ const Reviews = ({ gigId }) => {
           <button>Send</button>
         </form>
       </div>
+       )}
     </div>
   );
 };
