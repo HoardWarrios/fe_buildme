@@ -19,8 +19,9 @@ body, html {
     background-color: #dbdbdb;
     padding: 20px;
     width: 100%;
-    // position: absolute;
+    overflow: hidden;
     bottom: 0;
+    box-sizing: border-box;
   }
   
   .footer-container {

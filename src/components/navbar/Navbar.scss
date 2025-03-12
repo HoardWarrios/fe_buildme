@@ -6,9 +6,14 @@
     top: 0;
     z-index: 999;
     transition: 0.5s all ease;
+    background-color: #1b2046;
+    height: 60px;
+    border-bottom-left-radius: 5px; // Adjust radius as needed
+    border-bottom-right-radius: 5px;
   
     &.active {
-      background-color: white;
+      // background-color: white;
+      background-color: #141733;
       color: black;
   
       button {
@@ -25,19 +30,17 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 20px 0px;
+      padding: 13px 0px;
+      color: #ffffff;
   
       .logo {
         font-size: 34px;
         font-weight: bold;
   
-        .text {
-            
-        }
-  
+
         .dot {
           font-weight: bold;
-          color: #000000;
+          color: #ffffff;
         }
       }
       .links {
@@ -52,12 +55,12 @@
         }
 
         .bebuilder{
-          color: #363636;
+          color: #9192a0;
           font-weight: bold;
           text-decoration: none; 
       
           &:hover {
-            color: #111b75;
+            color: #ffffff;
           }
         }
 
@@ -96,17 +99,17 @@
         }
   
         button {
-          color: rgb(0, 0, 0);
+          color: rgb(255, 255, 255);
           padding: 10px 20px;
           border-radius: 5px;
-          border: 1px solid rgb(0, 0, 0);
+          border: 1px solid rgb(255, 255, 255);
           background-color: transparent;
           cursor: pointer;
   
           &:hover {
-            background-color: #000000;
+            background-color: #a7c5ff;
             border-color: #000000;
-            color: white;
+            color: rgb(0, 0, 0);
           }
         }
       }
@@ -147,7 +150,7 @@
         bottom: 0;
         width: 0;
         height: 2px;
-        background-color:#3c3b3b; /* The same color as the text */
+        background-color:#b2b2b2; /* The same color as the text */
         transition: width 0.3s ease; /* Smooth animation */
       }
     
@@ -158,7 +161,7 @@
       }
     
       &:hover {
-        color: #3c3b3b; 
+        color: #abaaaa; 
       }
     }
     
