@@ -8,13 +8,15 @@ import Reviews from "../../components/reviews/Reviews";
 
 //PROJECT/GIG PAGE FUNCTION
 function Gig() {
-  const { id } = useParams();// Get gig id from URL bar
+  // Get gig id from URL bar
+  const { id } = useParams();
 
+  // data: Get gig info from DB 
   const { isLoading, error, data } = useQuery({
     queryKey: ["gig"],
     queryFn: () =>
       newRequest.get(`/gigs/single/${id}`).then((res) => {
-        return res.data;// Get gig info 
+        return res.data;// return gig info 
       }),
   });
 
@@ -143,6 +145,7 @@ function Gig() {
                 </div>
               </div>
             )}
+            {/* Reviews component */}
             <Reviews gigId={id} />
           </div>
 

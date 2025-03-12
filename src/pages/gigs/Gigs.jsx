@@ -11,11 +11,14 @@ function Gigs() {
   const minRef = useRef();
   const maxRef = useRef();
 
+  //Get current location object contains details about the URL (such as pathname, search, and hash)
   const { search } = useLocation();
 
+  // Get 'cat' from URL, default to "All"
   const params = new URLSearchParams(search);
-  const category = params.get("cat") || "Project"; // Get 'cat' from URL, default to "All"
+  const category = params.get("cat") || "Project"; 
   
+  //Function for search filtering
   const { isLoading, error, data, refetch } = useQuery({
     queryKey: ["repoData"],
     queryFn: () =>
@@ -23,21 +26,24 @@ function Gigs() {
           `/gigs${search}&min=${minRef.current.value}&max=${maxRef.current.value}&sort=${sort}`
         )
         .then((res) => {
-          return res.data;
+          return res.data;//return object array
         }),
   });
 
   console.log(data);
 
+  // Sort gigs
   const reSort = (type) => {
     setSort(type);
     setOpen(false);
   };
 
+  // Refetch gigs whenever sort changes
   useEffect(() => {
     refetch();
   }, [sort]);
 
+  //Apply button function for min max range finding
   const apply = () => {
     refetch();
   };
