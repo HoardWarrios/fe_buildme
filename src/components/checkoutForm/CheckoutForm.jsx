@@ -10,15 +10,16 @@ const CheckoutForm = () => {
   const stripe = useStripe();
   const elements = useElements();
 
-  const [email, setEmail] = useState("");
-  const [message, setMessage] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
+  const [email, setEmail] = useState("");//Get customer email
+  const [message, setMessage] = useState(null);// If error show message
+  const [isLoading, setIsLoading] = useState(false);// If loading disable are buttons
 
   useEffect(() => {
     if (!stripe) {
       return;
     }
 
+    //Taking the clientsecret
     const clientSecret = new URLSearchParams(window.location.search).get(
       "payment_intent_client_secret"
     );
@@ -27,6 +28,7 @@ const CheckoutForm = () => {
       return;
     }
 
+    //Display payment messages/actions after taking client secret (taken from Stripe documentation)
     stripe.retrievePaymentIntent(clientSecret).then(({ paymentIntent }) => {
       switch (paymentIntent.status) {
         case "succeeded":
@@ -45,15 +47,18 @@ const CheckoutForm = () => {
     });
   }, [stripe]);
 
+  // Onclick the pay button
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    //Check whether Stripe.js has loaded or not || if not no action will return
     if (!stripe || !elements) {
       // Stripe.js has not yet loaded.
       // Make sure to disable form submission until Stripe.js has loaded.
       return;
     }
 
+    // If loaded the process will start
     setIsLoading(true);
 
     const { error } = await stripe.confirmPayment({
@@ -91,6 +96,7 @@ const CheckoutForm = () => {
       <PaymentElement id="payment-element" options={paymentElementOptions} />
       <button disabled={isLoading || !stripe || !elements} id="submit">
         <span id="button-text">
+          {/* If isLoading show spinner : else write "pay now" */}
           {isLoading ? <div className="spinner" id="spinner"></div> : "Pay now"}
         </span>
       </button>

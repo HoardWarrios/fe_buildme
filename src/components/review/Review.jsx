@@ -3,7 +3,9 @@ import React from "react";
 import newRequest from "../../utils/newRequest";
 import "./Review.scss";
 
-const Review = ({ review }) => {
+const Review = ({ review }) => {//Passing review prop
+
+  // Get user info using review.userId
   const { isLoading, error, data } = useQuery(
     {
       queryKey: [review.userId],
@@ -22,6 +24,7 @@ const Review = ({ review }) => {
       ) : error ? (
         "error"
       ) : (
+        // Display user info
         <div className="user">
           <img className="pp" src={data.img || "/img/noavatar.jpg"} alt="" />
           <div className="info">
@@ -29,6 +32,8 @@ const Review = ({ review }) => {
           </div>
         </div>
       )}
+
+      {/* Display stars */}
       <div className="stars">
         {Array(review.star)
           .fill()
@@ -37,7 +42,11 @@ const Review = ({ review }) => {
           ))}
         <span>{review.star}</span>
       </div>
+
+      {/* Review description */}
       <p>{review.desc}</p>
+
+      {/* Review bottom elements */}
       <div className="helpful">
         <span>Helpful?</span>
         <img src="/img/like.png" alt="" />

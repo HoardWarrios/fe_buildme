@@ -8,7 +8,7 @@ function Featured() {
   const navigate = useNavigate();//For navigation
 
   const handleSubmit = () => {
-    navigate(`/gigs?search=${input}`);//Navigated to searched gigs
+    navigate(`/gigs?search=${input}`);//Navigated to search gigs
   };
 
   //BANNER TEXT & SEARCH OPTION

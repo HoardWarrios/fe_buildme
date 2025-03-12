@@ -6,6 +6,7 @@ import newRequest from "../../utils/newRequest";
 import { useParams } from "react-router-dom";
 import CheckoutForm from "../../components/checkoutForm/CheckoutForm";
 
+// Key from stripe documentation
 const stripePromise = loadStripe(
   "pk_test_51QR7KiP18RPeydx7auBrxHYVIinFHuAcIYv6ynp0oVicAehE3GlvQK85y08DGqmLgGOv5ciOR2ev6Heiym4sLmm7005aBDcHFe"
 );
@@ -38,6 +39,7 @@ const Pay = () => {
     <div className="pay">
       <div className="payment-container">
         <h1 className="payment-title">Complete Your Payment</h1>
+        {/* If there is a client secret show the checkout form */}
         {clientSecret && (
           <div className="payment-form">
             <Elements options={options} stripe={stripePromise}>
