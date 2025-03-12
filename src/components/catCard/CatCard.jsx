@@ -5,7 +5,7 @@ import "./CatCard.scss";
 // adding category card
 function CatCard({ card }) {
   return (
-    <Link to="/gigs?cat=plumber">
+    <Link to={`/gigs?cat=${encodeURIComponent(card.title.toLowerCase())}`}>
       <div className="catCard">
         <img src={card.img} alt="" />
         <span className="desc">{card.desc}</span>

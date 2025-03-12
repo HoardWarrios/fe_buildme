@@ -18,6 +18,7 @@ const Messages = () => {
       }),
   });
 
+
   const mutation = useMutation({
     mutationFn: (id) => {
       return newRequest.put(`/conversations/${id}`);
@@ -44,7 +45,7 @@ const Messages = () => {
           </div>
           <table>
             <tr>
-              <th>{currentUser.isSeller ? "Buyer" : "Seller"}</th>
+              <th>{currentUser.isSeller ? "Homeowner ID" : "Builder ID"}</th>
               <th>Last Message</th>
               <th>Date</th>
               <th>Action</th>

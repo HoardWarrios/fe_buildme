@@ -71,7 +71,7 @@ const Orders = () => {
                 <td>                 
                   <img
                     className="message"
-                    src="./img/plan_2.png"
+                    src="./img/plan4.jpg"
                     alt=""
                     onClick={() => handlePlan(order)}
                   />

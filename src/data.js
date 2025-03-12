@@ -59,7 +59,7 @@ export const cards = [
     },
     {
       id: 2,
-      img: "https://angelmanagementsolutions.com/wp-content/uploads/2023/03/q1.jpg",
+      img: "https://api.gharpedia.com/wp-content/uploads/2018/08/0602030005-01-Plumbers.jpg",
       pp: "https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=1600",
       cat: "Plumbing",
       username: "Morton Green",
@@ -101,7 +101,7 @@ export const cards = [
     },
     {
       id: 8,
-      img: "https://servicewiseelectrical.com/wp-content/uploads/New-electrical-wiring-installation.jpg",
+      img: "https://www.shutterstock.com/image-photo/frame-building-house-basic-electrical-260nw-647775694.jpg",
       pp: "https://images.pexels.com/photos/1680175/pexels-photo-1680175.jpeg?auto=compress&cs=tinysrgb&w=1600",
       cat: "Wiring and Wood",
       username: "Ward Brewer",

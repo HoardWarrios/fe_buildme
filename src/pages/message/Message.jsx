@@ -50,7 +50,8 @@ const Message = () => {
           <div className="messages">
             {data.map((m) => (
               <div className={m.userId === currentUser._id ? "owner item" : "item"} key={m._id}>
-                <img src={currentUser.img || "/img/noavatar.jpg"} alt="" />
+                {/* <img src={currentUser.img || "/img/noavatar.jpg"} alt="" /> */}
+                <img src={"/img/noavatar.jpg"} alt="" />
                 <p>{m.desc}</p>
               </div>
             ))}

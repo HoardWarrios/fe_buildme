@@ -94,20 +94,16 @@ function Plan() {
                       <span className="desc">{dataUser.city}</span>
                     </div>
                     <div className="item">
+                      <span className="title">Contact</span>
+                      <span className="desc">{dataUser.phone}</span>
+                    </div>
+                    <div className="item">
+                      <span className="title">Description</span>
+                      <span className="desc">{dataUser.desc}</span>
+                    </div>
+                    <div className="item">
                       <span className="title">Member since</span>
-                      <span className="desc">Aug 2022</span>
-                    </div>
-                    <div className="item">
-                      <span className="title">Avg. response time</span>
-                      <span className="desc">4 hours</span>
-                    </div>
-                    <div className="item">
-                      <span className="title">Last delivery</span>
-                      <span className="desc">1 day</span>
-                    </div>
-                    <div className="item">
-                      <span className="title">Languages</span>
-                      <span className="desc">English</span>
+                      <span className="desc">{dataUser.createdAt}</span>
                     </div>
                   </div>
                   <hr />
@@ -120,6 +116,7 @@ function Plan() {
           <div className="right">
             <div className="price">
               <h3>{data.title}</h3>
+              <h2>LKR 1000</h2>
             </div>
             <p>{data.address}</p>
             <div className="details">

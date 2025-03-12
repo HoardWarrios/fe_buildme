@@ -42,7 +42,7 @@ function Gig() {
         <div className="container">
           <div className="left">
             <span className="breadcrumbs">
-              BuildME {">"} Wall Painting {">"}
+              BuildME {">"} Project {">"}
             </span>
             <h1>{data.title}</h1>
             {isLoadingUser ? (
@@ -74,7 +74,7 @@ function Gig() {
                 <img key={img} src={img} alt="" />
               ))}
             </Slider>
-            <h2>About This Gig</h2>
+            <h2>About This Project</h2>
             <p>{data.desc}</p>
             {isLoadingUser ? (
               "loading"
@@ -82,7 +82,7 @@ function Gig() {
               "Something went wrong!"
             ) : (
               <div className="seller">
-                <h2>About The Seller</h2>
+                <h2>About The Builder</h2>
                 <div className="user">
                   <img src={dataUser.img || "/img/noavatar.jpg"} alt="" />
                   <div className="info">
@@ -110,19 +110,19 @@ function Gig() {
                     </div>
                     <div className="item">
                       <span className="title">Member since</span>
-                      <span className="desc">Aug 2022</span>
+                      <span className="desc">{dataUser.createdAt}</span>
                     </div>
                     <div className="item">
-                      <span className="title">Avg. response time</span>
-                      <span className="desc">4 hours</span>
+                      <span className="title">Available</span>
+                      <span className="desc">24x7</span>
                     </div>
                     <div className="item">
-                      <span className="title">Last delivery</span>
-                      <span className="desc">1 day</span>
+                      <span className="title">Contact</span>
+                      <span className="desc">{dataUser.phone}</span>
                     </div>
                     <div className="item">
                       <span className="title">Languages</span>
-                      <span className="desc">English</span>
+                      <span className="desc">Sinhala/English</span>
                     </div>
                   </div>
                   <hr />
@@ -135,13 +135,13 @@ function Gig() {
           <div className="right">
             <div className="price">
               <h3>{data.shortTitle}</h3>
-              <h2>$ {data.price}</h2>
+              <h2>LKR {data.price}</h2>
             </div>
             <p>{data.shortDesc}</p>
             <div className="details">
               <div className="item">
                 <img src="/img/clock.png" alt="" />
-                <span>{data.deliveryDate} Days Delivery</span>
+                <span>{data.deliveryTime} Days</span>
               </div>
               <div className="item">
                 <img src="/img/recycle.png" alt="" />

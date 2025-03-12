@@ -13,11 +13,14 @@ function Gigs() {
 
   const { search } = useLocation();
 
+  const params = new URLSearchParams(search);
+  const category = params.get("cat") || "All"; // Get 'cat' from URL, default to "All"
+  
   const { isLoading, error, data, refetch } = useQuery({
     queryKey: ["repoData"],
     queryFn: () =>
       newRequest.get(
-          `/gigs`
+          `/gigs${search}&min=${minRef.current.value}&max=${maxRef.current.value}&sort=${sort}`
         )
         .then((res) => {
           return res.data;
@@ -42,10 +45,10 @@ function Gigs() {
   return (
     <div className="gigs">
       <div className="container">
-        <span className="breadcrumbs">Wall Painting </span>
-        <h1>Painters</h1>
+        <span className="breadcrumbs">VIEW PROJECTS  </span>
+        <h1>{category.charAt(0).toUpperCase() + category.slice(1)}s</h1>
         <p>
-          Explore the boundaries of art and technology with BuildME members
+          Explore the boundaries of construction and technology with BuildME members
         </p>
         <div className="menu">
           <div className="left">
@@ -57,7 +60,7 @@ function Gigs() {
           <div className="right">
             <span className="sortBy">Sort by</span>
             <span className="sortType">
-              {sort === "sales" ? "Best Selling" : "Newest"}
+              {sort === "sales" ? "Top Rated" : "Newest"}
             </span>
             <img src="./img/down.png" alt="" onClick={() => setOpen(!open)} />
             {open && (
@@ -65,9 +68,8 @@ function Gigs() {
                 {sort === "sales" ? (
                   <span onClick={() => reSort("createdAt")}>Newest</span>
                 ) : (
-                  <span onClick={() => reSort("sales")}>Best Selling</span>
+                  <span onClick={() => reSort("sales")}>Top Rated</span>
                 )}
-                <span onClick={() => reSort("sales")}>Popular</span>
               </div>
             )}
           </div>
