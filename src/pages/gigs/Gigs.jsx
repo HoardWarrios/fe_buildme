@@ -14,7 +14,7 @@ function Gigs() {
   const { search } = useLocation();
 
   const params = new URLSearchParams(search);
-  const category = params.get("cat") || "All"; // Get 'cat' from URL, default to "All"
+  const category = params.get("cat") || "Project"; // Get 'cat' from URL, default to "All"
   
   const { isLoading, error, data, refetch } = useQuery({
     queryKey: ["repoData"],
