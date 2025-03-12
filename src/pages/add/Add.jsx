@@ -81,7 +81,7 @@ const Add = () => {
       <div className="container">
 
         {/* Page Title */}
-        <h1>Add New Gig</h1>
+        <h1>Add New Project</h1>
         <div className="sections">
           <div className="info">
 
@@ -169,11 +169,11 @@ const Add = () => {
             ></textarea>
 
               {/* Get delivery time numeric input */}
-            <label htmlFor="">Delivery Time (e.g. 3 days)</label>
+            <label htmlFor="">Service Time (e.g. hours per day)</label>
             <input type="number" name="deliveryTime" onChange={handleChange} />
 
             {/* Get Revision Number numeric input */}
-            <label htmlFor="">Revision Number</label>
+            <label htmlFor="">Service Number</label>
             <input
               type="number"
               name="revisionNumber"

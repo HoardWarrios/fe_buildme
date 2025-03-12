@@ -47,9 +47,8 @@ function Login() {
         <button type="submit">Login</button>
         {error && error} {/*// If there is an error show it! */}
 
-        <p>
-          No account yet?  <Link className="signup" to="/register">Sign up now</Link>
-        </p>
+        <p> <Link className="signup" to="/resetPassword">Forgot Password?</Link> </p>
+        <p> No account yet?  <Link className="signup" to="/register">Sign up now</Link> </p>
       </form>
     </div>
   );

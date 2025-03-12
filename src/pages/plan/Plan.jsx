@@ -32,6 +32,7 @@ function Plan() {
   });
 
   return (
+    // User plan view
     <div className="plan">
       {isLoading ? (
         "loading"
@@ -43,6 +44,7 @@ function Plan() {
             <span className="breadcrumbs">
               BuildME {">"} UserPlan {">"}
             </span>
+
             <h1>{data.title}</h1>
             
             {isLoadingUser ? (
@@ -59,6 +61,8 @@ function Plan() {
                 <span>{dataUser.username}</span>
               </div>
             )}
+
+              {/* User Plan */}
               <div className="userplan">
                 <img
                   src={data.cover}
@@ -66,11 +70,14 @@ function Plan() {
                 />
               </div>
 
+            {/* Additional images */}
             <Slider slidesToShow={1} arrowsScroll={1} className="slider">
               {data.images.map((img) => (
                 <img key={img} src={img} alt="" />
               ))}
             </Slider>
+            
+            {/* Plan Description */}
             <h2>Request description </h2>
             <p>{data.desc}</p>
             {isLoadingUser ? (
@@ -78,6 +85,8 @@ function Plan() {
             ) : errorUser ? (
               "Something went wrong!"
             ) : (
+
+              // About the user
               <div className="seller">
                 <h2>About The User</h2>
                 <div className="user">
@@ -111,8 +120,9 @@ function Plan() {
                 </div>
               </div>
             )}
-            
           </div>
+
+          {/* Plan advance payment card */}
           <div className="right">
             <div className="price">
               <h3>{data.title}</h3>

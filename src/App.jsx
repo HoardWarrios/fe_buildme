@@ -8,6 +8,7 @@ import Gigs from "./pages/gigs/Gigs";
 import Gig from "./pages/gig/Gig";
 import Login from "./pages/login/Login";
 import Register from "./pages/register/Register";
+import ResetPassword from "./pages/resetPassword/ResetPassword";
 import Add from "./pages/add/Add";
 import Orders from "./pages/orders/Orders";
 import Messages from "./pages/messages/Messages";
@@ -118,6 +119,10 @@ function App() {
     {
       path: "/login",
       element: <Login />,
+    },
+    {
+      path: "/resetPassword",
+      element: <ResetPassword />,
     },
   ]);
 
