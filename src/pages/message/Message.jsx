@@ -5,7 +5,10 @@ import newRequest from "../../utils/newRequest";
 import "./Message.scss";
 
 const Message = () => {
+  //Use user params to get conversation id
   const { id } = useParams();
+
+  //Get current user from localstorage
   const currentUser = JSON.parse(localStorage.getItem("currentUser"));
 
   const queryClient = useQueryClient();
@@ -20,18 +23,18 @@ const Message = () => {
 
   const mutation = useMutation({
     mutationFn: (message) => {
-      return newRequest.post(`/messages`, message);
+      return newRequest.post(`/messages`, message);//pass the message to endpoint
     },
     onSuccess: () => {
-      queryClient.invalidateQueries(["messages"]);
+      queryClient.invalidateQueries(["messages"]);// if success refresh message
     },
   });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e) => {//get event from form
     e.preventDefault();
     mutation.mutate({
-      conversationId: id,
-      desc: e.target[0].value,
+      conversationId: id,// Get conversationId from use params
+      desc: e.target[0].value,//Send e: input box text (input event) as desc
     });
     e.target[0].value = "";
   };
@@ -48,7 +51,9 @@ const Message = () => {
           "error"
         ) : (
           <div className="messages">
-            {data.map((m) => (
+            {data.map((m) => (//unique key for massage
+            
+              //Display message seperate from owner & other persons messages
               <div className={m.userId === currentUser._id ? "owner item" : "item"} key={m._id}>
                 {/* <img src={currentUser.img || "/img/noavatar.jpg"} alt="" /> */}
                 <img src={"/img/noavatar.jpg"} alt="" />

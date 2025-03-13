@@ -6,7 +6,7 @@ import "./Messages.scss";
 import moment from "moment";
 
 const Messages = () => {
-  const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+  const currentUser = JSON.parse(localStorage.getItem("currentUser"));//Use local storage to fetch currentuser 
 
   const queryClient = useQueryClient();
 
@@ -20,9 +20,11 @@ const Messages = () => {
 
 
   const mutation = useMutation({
+    //Update conversations on id using mutation function
     mutationFn: (id) => {
       return newRequest.put(`/conversations/${id}`);
     },
+    // on success run conversations usequary function/ refresh conversations quary
     onSuccess: () => {
       queryClient.invalidateQueries(["conversations"]);
     },
@@ -43,6 +45,7 @@ const Messages = () => {
           <div className="title">
             <h1>Messages</h1>
           </div>
+           {/* Converstaion table */}
           <table>
             <tr>
               <th>{currentUser.isSeller ? "Homeowner ID" : "Builder ID"}</th>
@@ -50,25 +53,29 @@ const Messages = () => {
               <th>Date</th>
               <th>Action</th>
             </tr>
-            {data.map((c) => (
+            {data.map((c) => (// map data to c: conversation
               <tr
                 className={
                   ((currentUser.isSeller && !c.readBySeller) ||
                     (!currentUser.isSeller && !c.readByBuyer)) &&
-                  "active"
+                  "active" // Display active message bold for unread messages
                 }
-                key={c.id}
+                key={c.id}//Using a custom id for conversation
               >
+                {/* If current user is the seller get buyerId : Else get sellerId */}
                 <td>{currentUser.isSeller ? c.buyerId : c.sellerId}</td>
                 <td>
                   <Link to={`/message/${c.id}`} className="link">
+                  {/* Any last message if existed */}
                     {c?.lastMessage?.substring(0, 100)}...
                   </Link>
                 </td>
+                {/* using moment library, get updatedTime from Now */}
                 <td>{moment(c.updatedAt).fromNow()}</td>
                 <td>
-                  {((currentUser.isSeller && !c.readBySeller) ||
-                    (!currentUser.isSeller && !c.readByBuyer)) && (
+                  {((currentUser.isSeller && !c.readBySeller) ||//If current user is seller & readby seller will be false 
+                    (!currentUser.isSeller && !c.readByBuyer)) && (//if current user is buyer & readby buyer will be false
+                    // Display Mark as read button to readby party: true 
                     <button onClick={() => handleRead(c.id)}>
                       Mark as Read
                     </button>
