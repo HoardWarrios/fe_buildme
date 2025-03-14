@@ -62,7 +62,7 @@ const Orders = () => {
           <table>
             <tr>
               <th>Image</th>
-              <th>Builder Name</th>
+              <th>{!currentUser.isSeller ? "Builder Name" : "House owner Name"}</th>
               <th>Description</th>
               <th>View Plan</th>
               <th>Contact</th>
@@ -77,7 +77,7 @@ const Orders = () => {
                 </td>
 
                  {/* get builder name */}
-                 <td>{order.sellerName}</td>
+                 <td>{!currentUser.isSeller ? order.sellerName : order.buyerName}</td>
 
                 {/* get order title*/}
                 <td>{order.title}</td>

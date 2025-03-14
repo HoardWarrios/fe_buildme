@@ -153,7 +153,7 @@ const Add = () => {
             <input
               type="text"
               name="shortTitle"
-              placeholder="e.g. One-page web design"
+              placeholder="e.g. Painting service"
               onChange={handleChange}
             />
 
@@ -183,7 +183,7 @@ const Add = () => {
             {/* Get features */}
             <label htmlFor="">Add Features</label>
             <form action="" className="add" onSubmit={handleFeature}>
-              <input type="text" placeholder="e.g. page design" />
+              <input type="text" placeholder="e.g. Quality, Expert, Hardworking" />
 
               {/* Add feature button */}
               <button type="submit">add</button>
