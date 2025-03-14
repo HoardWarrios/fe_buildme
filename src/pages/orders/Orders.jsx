@@ -5,31 +5,33 @@ import { useQuery } from "@tanstack/react-query";
 import newRequest from "../../utils/newRequest";
 
 const Orders = () => {
-  const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+  const currentUser = JSON.parse(localStorage.getItem("currentUser"));//get current user from local storage which data represent as json format in db
 
   const navigate = useNavigate();
 
-  // Use quary to get orders
+  // geting orders data using React Query
   const { isLoading, error, data } = useQuery({
     queryKey: ["orders"],
     queryFn: () =>
-      newRequest.get(`/orders`).then((res) => {
+      newRequest.get(`/orders`).then((res) => {//get orders from order
         return res.data;
       }),
   });
 
-// Generating combined id's for conversation
+// to handle messaging with seller or buyer
   const handleContact = async (order) => {
     const sellerId = order.sellerId;
     const buyerId = order.buyerId;
-    const id = sellerId + buyerId;
+    const id = sellerId + buyerId;// create a unique conversation ID seller+buyer
 
+    // if a conversation exists, navigates to it
     try {
       //Get converstaion/message
       const res = await newRequest.get(`/conversations/single/${id}`);
       navigate(`/message/${res.data.id}`);
     } catch (err) {
       if (err.response.status === 404) {
+        // otherwise, creates a new one  
         const res = await newRequest.post(`/conversations/`, {
           to: currentUser.seller ? buyerId : sellerId,
         });
@@ -39,10 +41,11 @@ const Orders = () => {
   };
 
 
-  //Get plan to view it
+   // to view a specific plan
   const handlePlan = async (order) => {
     const planId = order.planId;
 
+    // get plan details according to plan id and navigate to the viewplan page
     try {
       const res = await newRequest.get(`/plans/single/${planId}`);
       navigate(`/viewPlan/${planId}`);//navigate to viewPlan
@@ -53,6 +56,7 @@ const Orders = () => {
 //ODERS PAGE DESIGN
   return (
     <div className="orders">
+      {/* Display loading message while geting data */}
       {isLoading ? ("loading") : error ? ("error") : (
         <div className="container">
           <div className="title">

@@ -5,14 +5,16 @@ import newRequest from "../../utils/newRequest";
 import "./Message.scss";
 
 const Message = () => {
-  //Use user params to get conversation id
-  const { id } = useParams();
+
+  const { id } = useParams();//get the conversation id from the url parameter
 
   //Get current user from localstorage
   const currentUser = JSON.parse(localStorage.getItem("currentUser"));
 
+  // query manages the cache for server state
   const queryClient = useQueryClient();
 
+  //geting messages for the current conversation
   const { isLoading, error, data } = useQuery({
     queryKey: ["messages"],
     queryFn: () =>
@@ -20,23 +22,23 @@ const Message = () => {
         return res.data;
       }),
   });
-
+//mutation for sending new messages
   const mutation = useMutation({
     mutationFn: (message) => {
-      return newRequest.post(`/messages`, message);//pass the message to endpoint
+      return newRequest.post(`/messages`, message);
     },
     onSuccess: () => {
-      queryClient.invalidateQueries(["messages"]);// if success refresh message
+      queryClient.invalidateQueries(["messages"]);//getting messages after a new one is sent // if success refresh message 
     },
   });
 
   const handleSubmit = (e) => {//get event from form
     e.preventDefault();
     mutation.mutate({
-      conversationId: id,// Get conversationId from use params
+      conversationId: id,
       desc: e.target[0].value,//Send e: input box text (input event) as desc
     });
-    e.target[0].value = "";
+    e.target[0].value = "";// Clear the input field after submission
   };
 
   return (
@@ -45,6 +47,7 @@ const Message = () => {
         <span className="breadcrumbs">
           <Link to="/messages">Messages</Link> 
         </span>
+         {/* Display messages or loading/error states */}
         {isLoading ? (
           "loading"
         ) : error ? (

@@ -6,32 +6,34 @@ import newRequest from "../../utils/newRequest";
 import { useParams } from "react-router-dom";
 import CheckoutForm from "../../components/checkoutForm/CheckoutForm";
 
-// Key from stripe documentation
+//setting up Stripe for the paymet process
 const stripePromise = loadStripe(
   "pk_test_51QR7KiP18RPeydx7auBrxHYVIinFHuAcIYv6ynp0oVicAehE3GlvQK85y08DGqmLgGOv5ciOR2ev6Heiym4sLmm7005aBDcHFe"
 );
 
 const Pay = () => {
-  const [clientSecret, setClientSecret] = useState("");
-  const { id } = useParams();
+  const [clientSecret, setClientSecret] = useState("");//states to store client secrte
+  const { id } = useParams();// Get order ID from URL parameters
 
+  //use effect makes a request to the backend to generate a payement intent stripe
   useEffect(() => {
     const makeRequest = async () => {
       try {
         const res = await newRequest.post(`/orders/create-payment-intent/${id}`);
         setClientSecret(res.data.clientSecret);
       } catch (err) {
-        console.log(err);
+        console.log(err);// console error if the request fails
       }
     };
     makeRequest();
   }, [id]);
 
+   // Stripe UI appearance settings
   const appearance = {
     theme: "stripe",
   };
   const options = {
-    clientSecret,
+    clientSecret,//initialize Stripe Elements
     appearance,
   };
 
@@ -39,7 +41,7 @@ const Pay = () => {
     <div className="pay">
       <div className="payment-container">
         <h1 className="payment-title">Complete Your Payment</h1>
-        {/* If there is a client secret show the checkout form */}
+        {/* Render payment form only if clientSecret is available */}
         {clientSecret && (
           <div className="payment-form">
             <Elements options={options} stripe={stripePromise}>

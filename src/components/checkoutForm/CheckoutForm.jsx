@@ -9,17 +9,18 @@ import {
 const CheckoutForm = () => {
   const stripe = useStripe();
   const elements = useElements();
-
-  const [email, setEmail] = useState("");//Get customer email
-  const [message, setMessage] = useState(null);// If error show message
+// State for storing email, error messages, and loading status
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState(null);
   const [isLoading, setIsLoading] = useState(false);// If loading disable are buttons
 
+  // Effect to check payment intent
   useEffect(() => {
     if (!stripe) {
       return;
     }
 
-    //Taking the clientsecret
+    // Retrieve clientSecret from the URL query parameters
     const clientSecret = new URLSearchParams(window.location.search).get(
       "payment_intent_client_secret"
     );
@@ -47,9 +48,9 @@ const CheckoutForm = () => {
     });
   }, [stripe]);
 
-  // Onclick the pay button
+  
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    e.preventDefault();//when submit form reload page but will not remove the data
 
     //Check whether Stripe.js has loaded or not || if not no action will return
     if (!stripe || !elements) {
@@ -89,10 +90,12 @@ const CheckoutForm = () => {
 
   return (
     <form id="payment-form" onSubmit={handleSubmit}>
+      {/* Authentication element to collect user email */}
       <LinkAuthenticationElement
         id="link-authentication-element"
         onChange={(e) => setEmail(e.target.value)}
       />
+      {/* Stripe's UI element for entering payment details */}
       <PaymentElement id="payment-element" options={paymentElementOptions} />
       <button disabled={isLoading || !stripe || !elements} id="submit">
         <span id="button-text">
